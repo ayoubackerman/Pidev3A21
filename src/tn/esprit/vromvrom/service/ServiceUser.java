@@ -33,8 +33,9 @@ public class ServiceUser implements IServiceUser<User> {
         
         Statement ste =  cnx.createStatement();
         
-         String requeteInsert = "INSERT INTO `user` (id, role,`nom`, prenom,`mail`,`nomd`,`mdp`) VALUES (NULL, '" + t.getRole()+"', '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getMail()+"', '" + t.getNomd()+"', '" + t.getMdp()+"');";
+        String requeteInsert = "INSERT INTO `user` (id_user, id_role,`nom`, prenom,`mail`,`nomd`,`mdp`,`statuts`) VALUES (NULL, '" + t.getRole().getId()+"', '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getMail()+"', '" + t.getNomd()+"', '" + t.getMdp()+"', '" + t.getStatut()+"' );";
         ste.executeUpdate(requeteInsert);
+        System.out.println("Utilisateur ajouté");
     }
     
 
@@ -45,7 +46,7 @@ public class ServiceUser implements IServiceUser<User> {
          String requeteDelete ="DELETE FROM user WHERE id="+ t.getId();
          ste.executeUpdate(requeteDelete);}
          else{
-           System.out.println("L'utulisateur n'existe pas");
+            System.out.println("L'utulisateur n'existe pas");
         }
          return true;
     }

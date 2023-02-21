@@ -5,17 +5,14 @@
  */
 package tn.esprit.vromvrom.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
  * @author MediaCenter Zaghouan
  */
 public class Database {
-        private final String url = "jdbc:mysql://localhost:3306/vromvrom";
+    private final String url = "jdbc:mysql://localhost:3306/vromvrom";
     private final String login = "root";
     private final String pwd = "";
 

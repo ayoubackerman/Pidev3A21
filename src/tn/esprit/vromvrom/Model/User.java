@@ -19,11 +19,12 @@ public class User {
 
     private String nomd;
     private String mdp;
+    private String statut;
 
     public User() {
     }
 
-    public User(int id, Role role, String nom, String prenom, String mail, String nomd, String mdp) {
+    public User(int id, Role role, String nom, String prenom, String mail, String nomd, String mdp, String status) {
         this.id = id;
         this.role = role;
         this.nom = nom;
@@ -31,6 +32,7 @@ public class User {
         this.mail = mail;
         this.nomd = nomd;
         this.mdp = mdp;
+        this.statut = status;
     }
 
     @Override
@@ -40,6 +42,9 @@ public class User {
 
     public int getId() {
         return id;
+    }
+    public String getStatut() {
+        return statut;
     }
 
     public void setId(int id) {
@@ -52,6 +57,9 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+    public void setStatus(String statut) {
+        this.statut = statut;
     }
 
     public String getNom() {
@@ -94,13 +102,14 @@ public class User {
         this.mdp = mdp;
     }
 
-    public User(Role role, String nom, String prenom, String mail, String nomd, String mdp) {
+    public User(Role role, String nom, String prenom, String mail, String nomd, String mdp, String statut) {
         this.role = role;
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.nomd = nomd;
         this.mdp = mdp;
+        this.statut = statut;
     }
 
    

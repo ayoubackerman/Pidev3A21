@@ -11,7 +11,7 @@ package tn.esprit.vromvrom.Model;
  */
 public class Voiture {
     private int id;
-    private User id_user;
+    private int id_user;
     private String modele;
     private String marque;
     private int matricule;
@@ -21,7 +21,7 @@ public class Voiture {
         return id;
     }
 
-    public User getId_user() {
+    public int getId_user() {
         return id_user;
     }
 
@@ -45,7 +45,7 @@ public class Voiture {
         this.id = id;
     }
 
-    public void setId_user(User id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 
@@ -69,8 +69,9 @@ public class Voiture {
     public String toString() {
         return "Voiture{" + "id=" + id + ", id_user=" + id_user + ", modele=" + modele + ", marque=" + marque + ", matricule=" + matricule + ", img=" + img + '}';
     }
-
-    public Voiture(User id_user, String modele, String marque, int matricule, String img) {
+    
+    public Voiture(int id, int id_user, String modele, String marque, int matricule) {
+        this.id = id;
         this.id_user = id_user;
         this.modele = modele;
         this.marque = marque;
@@ -78,11 +79,28 @@ public class Voiture {
         this.img = img;
     }
 
-    public Voiture(User id_user, String modele, String marque, int matricule) {
+    public Voiture(int id_user, String modele, String marque, int matricule, String img) {
         this.id_user = id_user;
         this.modele = modele;
         this.marque = marque;
         this.matricule = matricule;
+        this.img = img;
+    }
+
+    public Voiture(int id_user, String modele, String marque, int matricule) {
+        this.id_user = id_user;
+        this.modele = modele;
+        this.marque = marque;
+        this.matricule = matricule;
+        this.img = "";
+    }
+    
+    public Voiture() {
+        this.id_user = 0;
+        this.modele = "";
+        this.marque = "";
+        this.matricule = 0;
+        this.img = "";
     }
     
     

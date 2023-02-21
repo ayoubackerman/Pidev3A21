@@ -8,13 +8,20 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Vromvrom.jar" size="62972" download="eager" />
+    <jar href="Vromvrom.jar" size="73432" download="eager" />
+    <jar href="lib\ant-javafx.jar" size="1595203" download="eager" />
+    <jar href="lib\dt.jar" size="163067" download="eager" />
     <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
+    <jar href="lib\javafx-mx.jar" size="36044" download="eager" />
+    <jar href="lib\jconsole.jar" size="410525" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.19.jar" size="2356711" download="eager" />
+    <jar href="lib\packager.jar" size="4646" download="eager" />
+    <jar href="lib\sa-jdi.jar" size="2443116" download="eager" />
+    <jar href="lib\tools.jar" size="18277317" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Vromvrom" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="tn.esprit.vromvrom.Vromvrom"  name="Vromvrom" />
+  <jfx:javafx-desc  width="800" height="600" main-class="tests.Vromvrom"  name="Vromvrom" />
   <update check="always"/>
 </jnlp>
