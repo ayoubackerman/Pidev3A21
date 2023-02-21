@@ -6,6 +6,7 @@
 package tn.esprit.vromvrom;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -26,14 +27,15 @@ import tn.esprit.vromvrom.Database.Database;
  */
 public class Vromvrom extends Application {
     
-    @Override
+//    @Override
     public void start(Stage primaryStage) {
       try {
-            Parent root = FXMLLoader.load(getClass(). getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass(). getResource("DashboardAdmin.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Login");
             primaryStage.setScene(scene);
-            primaryStage.show();           
+            primaryStage.show();         
+            
         } catch (IOException ex) {
             Logger.getLogger(Vromvrom.class.getName()).log(Level.SEVERE, null, ex);
         }    }
@@ -41,10 +43,20 @@ public class Vromvrom extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         launch(args);
+
+//ServiceUser s = new ServiceUser();
+//ServiceRole r = new ServiceRole();
+//
+//
+//User u = new User(r.SelectRole(1),"sdd","dds","dds","dds","dds");
+//
+////s.ajouter(u);
+//r.readAll();
+//  
+//  
     }
 
-  
-    
+
 }

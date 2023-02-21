@@ -15,6 +15,9 @@ import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Role;
 import tn.esprit.vromvrom.Model.User;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,8 +36,21 @@ public class ServiceUser implements IServiceUser<User> {
         
         Statement ste =  cnx.createStatement();
         
-         String requeteInsert = "INSERT INTO `user` (id, role,`nom`, prenom,`mail`,`nomd`,`mdp`) VALUES (NULL, '" + t.getRole()+"', '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getMail()+"', '" + t.getNomd()+"', '" + t.getMdp()+"');";
-        ste.executeUpdate(requeteInsert);
+        ServiceRole r = new ServiceRole();
+        
+        Role rr = new Role();
+        rr = r.SelectRole(t.getId_role().getId_role());
+
+//       int id = t.getId_role().getId_role();
+//        System.out.println(id);
+         String requeteInsert = "INSERT INTO user (id_user, id_role,nom,prenom,mail,nomd,mdp) VALUES (NULL,'" + rr + "','" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getMail()+"', '" + t.getNomd()+"', '" + t.getMdp()+"');";
+//           String j = "INSERT INTO user (id_user, id_role, nom, prenom, mail, nomd, mdp) SELECT NULL,id_role,nom,prenom, mail,nomd, mdp FROM user r JOIN role u ON r.id_role = u.id_role";
+    
+//Role role = r.SelectRole(t.getId_role().getId_role());
+//int id=role.getId_role();
+//t.setId_role(r.SelectRole(id));
+ste.executeUpdate(requeteInsert);
+
     }
     
 
@@ -42,7 +58,7 @@ public class ServiceUser implements IServiceUser<User> {
     public boolean delete(User t) throws SQLException {
            if (search(t)==true){
          Statement ste =(Statement) cnx.createStatement();
-         String requeteDelete ="DELETE FROM user WHERE id="+ t.getId();
+         String requeteDelete ="DELETE FROM user WHERE id_user="+ t.getId_user();
          ste.executeUpdate(requeteDelete);}
          else{
            System.out.println("L'utulisateur n'existe pas");
@@ -62,37 +78,77 @@ public class ServiceUser implements IServiceUser<User> {
 
     @Override
     public List<User> readAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       ServiceRole r = new ServiceRole();
+   List<User> arr=new ArrayList<>();
+    Statement ste= cnx.createStatement();
+    ResultSet rs=ste.executeQuery("select * from user");
+     while (rs.next()) {                
+               int id_user=rs.getInt(1);
+               Role role=r.SelectRole(rs.getInt(2));
+               String nom=rs.getString(3);
+               String prenom=rs.getString(4);
+               String mail=rs.getString(5);
+               String nomd=rs.getString(6);
+               String mdp=rs.getString(7);
+               
+               User p=new User(id_user,role,nom,prenom,mail,nomd,mdp);
+     arr.add(p);
+     }
+    return arr;
     }
 
     @Override
     public User login(String email, String mdpasse, String numdu) throws SQLException {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
-        
-//         
-//      User p=new User();
-//      Role r=new Role();
-//        String req=("select * from user WHERE mail=? or Nomd=? and mdp=? ");
-//        PreparedStatement pre = cnx.prepareStatement(req);
-//         pre.setString(1, email);
-//         pre.setString(2, numdu);
-//         pre.setString(3, mdpasse);
-//        ResultSet rs = pre.executeQuery();
-//        while (rs.next()) {
-//            int id = rs.getInt(1);
-//            Role role = rs.get(2);
-//            String nom = rs.getString(3);
-//            String prenom = rs.getString(4);
-//            String mail = rs.getString(5);
-//            String nomd = rs.getString(6);
-//            String mdp = rs.getString(7);
-//            
-//            p = new User(id, role, nom, prenom, mail, nomd, mdp);
-//            User.connecte=new User(id, role, nom, prenom, mail, nomd, mdp);
-//        }
-//        return p;
+        ServiceRole ro =new ServiceRole();
+         
+      User p=new User();
+      Role r=new Role();
+        String req=("select * from user WHERE mail=? or Nomd=? and mdp=? ");
+        PreparedStatement pre = cnx.prepareStatement(req);
+         pre.setString(1, email);
+         pre.setString(2, numdu);
+         pre.setString(3, mdpasse);
+        ResultSet rs = pre.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            Role role = ro.SelectRole(rs.getInt(2));
+            String nom = rs.getString(3);
+            String prenom = rs.getString(4);
+            String mail = rs.getString(5);
+            String nomd = rs.getString(6);
+            String mdp = rs.getString(7);
+            
+            p = new User(id, role, nom, prenom, mail, nomd, mdp);
+            User.connecte=new User(id, role, nom, prenom, mail, nomd, mdp);
+        }
+        return p;
     }
 
+      public User SelectUser(int id){
+          
+        User r = new User();
+        
+        ServiceRole ro =new ServiceRole();
+        String req = "SELECT * FROM `User` where id_user ="+id;
+        
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+
+        ResultSet rs = ps.executeQuery(req);
+            
+            while(rs.next()){           
+                 
+               r = new User(rs.getInt("id"),ro.SelectRole(rs.getInt("role")) ,rs.getString("nom"),rs.getString("prenom"),rs.getString("mail"),rs.getString("nomd"),rs.getString("mdp"));
+
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceRole .class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+    
     
 }

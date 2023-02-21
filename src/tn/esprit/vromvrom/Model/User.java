@@ -10,22 +10,62 @@ package tn.esprit.vromvrom.Model;
  * @author MediaCenter Zaghouan
  */
 public class User {
-    private int id;
-    private Role role;
+    private int id_user;
+    private Role id_role;
     private String nom;
     private String prenom;
     private String mail;
-
-
-    private String nomd;
+      private String nomd;
     private String mdp;
+    private String status;
+    private String Image;
+    public static User connecte;
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String Image) {
+        this.Image = Image;
+    }
+    
+
+    public User(Role id_role, String nom, String prenom, String mail, String nomd, String mdp, String Image) {
+        this.id_role = id_role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.nomd = nomd;
+        this.mdp = mdp;
+        this.Image = Image;
+    }
+    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 
     public User() {
     }
 
-    public User(int id, Role role, String nom, String prenom, String mail, String nomd, String mdp) {
-        this.id = id;
-        this.role = role;
+    public User(Role id_role, String nom, String prenom, String mail, String nomd, String mdp) {
+        this.id_role = id_role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.nomd = nomd;
+        this.mdp = mdp;
+    }
+
+
+    public User(int id_user, Role id_role, String nom, String prenom, String mail, String nomd, String mdp) {
+        this.id_user = id_user;
+        this.id_role = id_role;
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
@@ -35,23 +75,31 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", role=" + role + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", nomd=" + nomd + ", mdp=" + mdp + '}';
+        return "User{" + "id_user=" + id_user + ", id_role=" + id_role + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", nomd=" + nomd + ", mdp=" + mdp + '}';
     }
 
-    public int getId() {
-        return id;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public Role getRole() {
-        return role;
+    public User(String nom, String prenom, String mail, String nomd, String status) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.nomd = nomd;
+        this.status = status;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public Role getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(Role id_role) {
+        this.id_role = id_role;
     }
 
     public String getNom() {
@@ -94,14 +142,17 @@ public class User {
         this.mdp = mdp;
     }
 
-    public User(Role role, String nom, String prenom, String mail, String nomd, String mdp) {
-        this.role = role;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.nomd = nomd;
-        this.mdp = mdp;
+    public static User getConnecte() {
+        return connecte;
     }
+
+    public static void setConnecte(User connecte) {
+        User.connecte = connecte;
+    }
+
+
+  
+
 
    
 

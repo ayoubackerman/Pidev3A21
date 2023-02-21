@@ -23,6 +23,16 @@ public class urgence {
     public urgence() {
     }
 
+    public urgence(int id_trajet, int id_voiture, String localisation, String description, String status, String temps) {
+        this.id_trajet = id_trajet;
+        this.id_voiture = id_voiture;
+        this.localisation = localisation;
+        this.description = description;
+        this.status = status;
+        this.temps = temps;
+    }
+    
+
     public urgence(int id_urgence, int id_trajet, int id_voiture, String localisation, String description, String status, String temps) {
         this.id_urgence = id_urgence;
         this.id_trajet = id_trajet;
