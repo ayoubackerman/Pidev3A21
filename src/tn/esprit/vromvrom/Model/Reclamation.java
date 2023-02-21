@@ -12,32 +12,94 @@ package tn.esprit.vromvrom.Model;
 public class Reclamation {
     
     private int id_reclamation;
-    private User id_user;
-    private String reclamation ,type_reclamation ,resolution, temps;
-    
-    
+    private int id_user;
+    private String nom,prenom,reclamation ,type_reclamation ,resolution,time ,reponse ;
 
-    public Reclamation(int id_reclamation, User id_user, String reclamation, String type_reclamation, String resolution, String temps, String Reclamation ) {
+    public Reclamation(int id_reclamation, int id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
+        this.nom = nom;
+        this.prenom = prenom;
         this.reclamation = reclamation;
         this.type_reclamation = type_reclamation;
         this.resolution = resolution;
-        this.temps = temps;
-        
+        this.time = time;
+        this.reponse = reponse;
     }
 
-    @Override
-    public String toString() {
-        return "Reclamation{" + "id_reclamation=" + id_reclamation + ", id_user=" + id_user + ", reclamation=" + reclamation + ", type_reclamation=" + type_reclamation + ", resolution=" + resolution + ", temps=" + temps + '}';
+    public Reclamation(int id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
+        this.id_user = id_user;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.reclamation = reclamation;
+        this.type_reclamation = type_reclamation;
+        this.resolution = resolution;
+        this.time = time;
+        this.reponse = reponse;
+    }
+
+    public Reclamation(String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.reclamation = reclamation;
+        this.type_reclamation = type_reclamation;
+        this.resolution = resolution;
+        this.time = time;
+        this.reponse = reponse;
+    }
+
+  
+
+    
+
+   
+
+    public int getId_reclamation() {
+        return id_reclamation;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getReclamation() {
+        return reclamation;
+    }
+
+    public String getType_reclamation() {
+        return type_reclamation;
+    }
+
+    public String getResolution() {
+        return resolution;
+    }
+    
+    public String getTime() {
+        return time;
     }
 
     public void setId_reclamation(int id_reclamation) {
         this.id_reclamation = id_reclamation;
     }
 
-    public void setId_user(User id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public void setReclamation(String reclamation) {
@@ -52,33 +114,33 @@ public class Reclamation {
         this.resolution = resolution;
     }
 
-    public void setTemps(String temps) {
-        this.temps = temps;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public int getId_reclamation() {
-        return id_reclamation;
+    public String getReponse() {
+        return reponse;
     }
 
-    public User getId_user() {
-        return id_user;
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
     }
 
-    public String getReclamation() {
-        return reclamation;
+  
+
+    public Reclamation() {
     }
 
-    public String getType_reclamation() {
-        return type_reclamation;
+    @Override
+    public String toString() {
+        return "Reclamation{" + "id_reclamation=" + id_reclamation + ", id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", reclamation=" + reclamation + ", type_reclamation=" + type_reclamation + ", resolution=" + resolution + ", time=" + time + '}';
     }
 
-    public String getResolution() {
-        return resolution;
-    }
-
-    public String getTemps() {
-        return temps;
+    public String getid_reclamation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+
+   
     
 }

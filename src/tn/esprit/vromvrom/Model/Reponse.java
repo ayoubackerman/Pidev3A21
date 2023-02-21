@@ -10,64 +10,110 @@ package tn.esprit.vromvrom.Model;
  * @author MediaCenter Zaghouan
  */
 public class Reponse {
-    private int id_reponce;
-    private Reclamation id_reclamation;
-    private String reponse , status , temps;
+    private int id_reponse;
+    private int id_reclamation,id_user;
+    private String reponse , temps ,nom,prenom;
 
-    public Reponse(int id_reponce, Reclamation id_reclamation, String reponse, String status, String temps) {
-        this.id_reponce = id_reponce;
+    public Reponse() {
+        
+    }
+
+    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse, String temps, String nom, String prenom) {
+        this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
+        this.id_user = id_user;
         this.reponse = reponse;
-        this.status = status;
         this.temps = temps;
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
-    @Override
-    public String toString() {
-        return "Reponse{" + "id_reponce=" + id_reponce + ", id_reclamation=" + id_reclamation + ", reponse=" + reponse + ", status=" + status + ", temps=" + temps + '}';
-    }
-
-    public void setId_reponce(int id_reponce) {
-        this.id_reponce = id_reponce;
-    }
-
-    public void setId_reclamation(Reclamation id_reclamation) {
+    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse) {
+        this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
-    }
-
-    public void setReponse(String reponse) {
+        this.id_user = id_user;
         this.reponse = reponse;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setTemps(String temps) {
+    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse, String temps) {
+        this.id_reponse = id_reponse;
+        this.id_reclamation = id_reclamation;
+        this.id_user = id_user;
+        this.reponse = reponse;
         this.temps = temps;
     }
 
-    public int getId_reponce() {
-        return id_reponce;
+
+
+
+    public int getId_reponse() {
+        return id_reponse;
     }
 
-    public Reclamation getId_reclamation() {
+    public int getId_reclamation() {
         return id_reclamation;
+    }
+
+    public int getId_user() {
+        return id_user;
     }
 
     public String getReponse() {
         return reponse;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
+   
     public String getTemps() {
         return temps;
     }
-    
-    
-    
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setId_reponse(int id_reponse) {
+        this.id_reponse = id_reponse;
+    }
+
+    public void setId_reclamation(int id_reclamation) {
+        this.id_reclamation = id_reclamation;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
+
+    public void setTemps(String temps) {
+        this.temps = temps;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    @Override
+    public String toString() {
+        return "Reponse{" + "id_reponse=" + id_reponse + ", id_reclamation=" + id_reclamation + ", id_user=" + id_user + ", reponse=" + reponse + ", temps=" + temps +  '}';
+    }
+
+   
+
+  
+
+  
+   
+ 
     
 }

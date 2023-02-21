@@ -11,29 +11,38 @@ package tn.esprit.vromvrom.Model;
  */
 public class Role {
     
-       private int id;
+       private int id_role;
     private String role;
 
-    @Override
-    public String toString() {
-        return "Role{" + "id=" + id + ", role=" + role + '}';
+    public Role(int id_role, String role) {
+        this.id_role = id_role;
+        this.role = role;
     }
 
-    public int getId() {
-        return id;
+    public Role() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId_role() {
+        return id_role;
+    }
+
+    public void setId_role(int id_role) {
+        this.id_role = id_role;
     }
 
     public String getRole() {
         return role;
     }
 
+    @Override
+    public String toString() {
+        return "Role{" + "id_role=" + id_role + ", role=" + role + '}';
+    }
+
     public void setRole(String role) {
         this.role = role;
     }
 
+   
     
 }

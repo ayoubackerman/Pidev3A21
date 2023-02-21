@@ -17,6 +17,7 @@ public interface IServiceRole<Role> {
     boolean delete(Role t) throws SQLException;
     boolean update(Role t) throws SQLException;
     public boolean search(Role t) throws SQLException;
+    
     public List<Role> readAll() throws SQLException;
     
 }
