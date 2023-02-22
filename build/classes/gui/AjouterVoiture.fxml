@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.AjouterVoitureController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterVoitureController">
     <stylesheets>
         <URL value="@ajoutervoiture.css" />
     </stylesheets>
@@ -24,7 +24,7 @@
       <ImageView fx:id="img" fitHeight="123.0" fitWidth="221.0" layoutX="346.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="imgUrl" layoutX="346.0" layoutY="200.0" />
       <Text layoutX="252.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image_url" />
-      <Button fx:id="butImg" layoutX="250.0" layoutY="295.0" mnemonicParsing="false" onAction="#afficherImg" text="Afficher" />
+      <Button fx:id="butImg" layoutX="211.0" layoutY="301.0" mnemonicParsing="false" onAction="#afficherImg" text="Ajouter image" />
       <Button fx:id="butAfficher" layoutX="29.0" layoutY="143.0" mnemonicParsing="false" onAction="#afficher" text="Afficher Voitures" />
    </children>
 </AnchorPane>

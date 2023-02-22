@@ -15,6 +15,9 @@ import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Role;
 import tn.esprit.vromvrom.Model.User;
 import java.sql.*;
+import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -62,8 +65,26 @@ public class ServiceUser implements IServiceUser<User> {
     }
 
     @Override
-    public List<User> readAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ObservableList<User> readAll() throws SQLException {
+    ServiceRole r = new ServiceRole();
+    ObservableList<User> arr = FXCollections.observableArrayList();
+    Statement ste= cnx.createStatement();
+    ResultSet rs=ste.executeQuery("select * from user");
+     while (rs.next()) {                
+               int id_user=rs.getInt(1);
+               Role role = new Role();
+               role.setId(rs.getInt(2));
+               String nom=rs.getString(3);
+               String prenom=rs.getString(4);
+               String mail=rs.getString(5);
+               String nomd=rs.getString(6);
+               String mdp=rs.getString(7);
+               String status = rs.getString(8);
+               
+               User p=new User(id_user,role,nom,prenom,mail,nomd,mdp,status);
+     arr.add(p);
+     }
+    return arr;
     }
 
     @Override

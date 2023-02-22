@@ -23,6 +23,10 @@ public class User {
 
     public User() {
     }
+    
+    public User(int id) {
+        this.id = id;
+    }
 
     public User(int id, Role role, String nom, String prenom, String mail, String nomd, String mdp, String status) {
         this.id = id;
