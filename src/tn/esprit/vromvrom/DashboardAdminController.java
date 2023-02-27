@@ -5,6 +5,8 @@
  */
 package tn.esprit.vromvrom;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.math.BigInteger;
 import java.net.URL;
@@ -16,7 +18,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,12 +33,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.util.Callback;
 import javax.swing.JOptionPane;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Role;
@@ -50,84 +64,94 @@ public class DashboardAdminController implements Initializable {
      * Initializes the controller class.
      */
       private Connection cnx;
-    @FXML
     private TableView<User> tab_User;
    
     
-     @FXML
     private TableColumn<User, String> r;
-    @FXML
     private TableColumn<User, String> n;
-    @FXML
     private TableColumn<User, String> p;
-    @FXML
     private TableColumn<User, String> e;
-    @FXML
     private TableColumn<User, String> u;
-    @FXML
     private TableColumn<User, String> s;
-    @FXML
-    private Button dd;
-    @FXML
     private TableColumn<User, Integer> user;
-    @FXML
     private TextField uu;
-    @FXML
-    private Button img;
-    @FXML
     private TextField urlx;
+    @FXML
+    private HBox root;
+    @FXML
+    private AnchorPane side_ankerpane;
+    @FXML
+    private Pane inner_pane;
+    @FXML
+    private Pane most_inner_pane;
+    @FXML
+    private JFXButton btn_workbench;
+    @FXML
+    private JFXButton btn_workbench1;
+    @FXML
+    private JFXButton btn_workbench11;
+    @FXML
+    private JFXButton btn_workbench12;
+    @FXML
+    private JFXButton btn_workbench111;
+    @FXML
+    private JFXButton btn_workbench1111;
+    @FXML
+    private JFXTextField txt_serach;
+    @FXML
+    private Pane pane_1;
+    @FXML
+    private Pane pane_11;
+    @FXML
+    private ProgressBar progress21;
+    @FXML
+    private Pane pane_12;
+    @FXML
+    private ProgressBar progress2;
+    @FXML
+    private Pane pane_111;
+    @FXML
+    private Pane pane_1111;
+    @FXML
+    private ProgressBar progress111;
+    @FXML
+    private Pane inner_pane1;
+    @FXML
+    private Pane pane_13;
+    @FXML
+    private Pane pane_131;
+    @FXML
+    private Pane pane_1311;
+    @FXML
+    private Pane pane_132;
+    @FXML
+    private JFXButton btn_workbench11111;
 
     public DashboardAdminController(){
         cnx = Database.getInstance().getCnx();
     }
     
-    @FXML
     private TableView<Role> tab;
     
-    @FXML
     private TableColumn<Role,Integer> columnid;
 
-    @FXML
     private TableColumn<Role,String> columnRole;
     
-    @FXML
     private TextField Role_txt ;
-    @FXML
-    private Button Add ;  
-    
-     @FXML
-    private Button Add2 ;  
-    
-    
-    
-     @FXML
-    private Button del ; 
-    @FXML
-    private Button Edit ; 
      
-     @FXML
-    private Button Edi ; 
-     
-     @FXML
      private TextField idx;
      
-     @FXML
     private ComboBox<String> comm;
-      @FXML
     private TextField mail;
 
-    @FXML
     private TextField nom;
 
-    @FXML
     private TextField prenom;
 
-    @FXML
     private TextField nd;
 
    
 
-    @FXML
     private PasswordField pass;
 
     
@@ -188,9 +212,8 @@ public class DashboardAdminController implements Initializable {
           uu.setText(n);
     }
 }
-      
-        @FXML
-      void Modifier2(ActionEvent event) {
+      @FXML
+        void Modifier2(ActionEvent event) {
         String username= nd.getText();
      
 String no= nom.getText();
@@ -205,14 +228,13 @@ String pr= prenom.getText();
          PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
          st.executeUpdate();
             table2();
-          JOptionPane.showMessageDialog(null,"Le fichier a été modifier");
+          JOptionPane.showMessageDialog(null," L'utilisateur a été modifier");
     }catch(SQLException ex){
         ex.getMessage();
     }
         
 
     }
-      
       @FXML
       void dell(ActionEvent event) {
           
@@ -239,15 +261,23 @@ String pr= prenom.getText();
      
        public void table2(){
          
-        r.setCellValueFactory( new PropertyValueFactory<>("Role"));
+//        r.setCellValueFactory( new PropertyValueFactory<>("Role"));
+r.setCellValueFactory(new Callback<CellDataFeatures<User,String>,ObservableValue<String>>(){
+    @Override
+    public ObservableValue<String> call(CellDataFeatures<User, String> param) {
+                            return new SimpleStringProperty(param.getValue().getId_role().getRole());
+
+    }
+  
+             
+            });
         n.setCellValueFactory( new PropertyValueFactory<>("nom"));
         p.setCellValueFactory(new PropertyValueFactory <>("prenom"));
         e.setCellValueFactory( new PropertyValueFactory<>("mail"));
         u.setCellValueFactory(new PropertyValueFactory <>("Nomd"));
         s.setCellValueFactory(new PropertyValueFactory <>("status"));
-                user.setCellValueFactory(new PropertyValueFactory <>("id_user"));
-
-        
+        user.setCellValueFactory(new PropertyValueFactory <>("id_user"));
+       
        
         tab_User.setItems(RecupBase2()); 
         
@@ -271,23 +301,23 @@ String pr= prenom.getText();
         } 
     }
     
-      private void EnregistrerVersBase() {
-           java.sql.Connection cnx;
-     cnx = Database.getInstance().getCnx();
-             
-        
-           try {
-            String sql = "INSERT INTO role (role) VALUES (?)";
-            
-        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
-            st.setString(1, Role_txt.getText());
-         
-        
-            st.executeUpdate();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error");
-        }
-    } 
+//      private void EnregistrerVersBase() {
+//           java.sql.Connection cnx;
+//     cnx = Database.getInstance().getCnx();
+//             
+//        
+//           try {
+//            String sql = "INSERT INTO role (role) VALUES (?)";
+//            
+//        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
+//            st.setString(1, Role_txt.getText());
+//         
+//        
+//            st.executeUpdate();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null,"Error");
+//        }
+//    } 
     
        private void EnregistrerVersBase2() {
            java.sql.Connection cnx;
@@ -312,16 +342,12 @@ String pr= prenom.getText();
             st.setString(7,urlx.getText());
                System.out.println(urlx.getText());
                System.out.println(encryptThisString(pass.getText()));
-
-         
-        
             st.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error");
         }
     } 
-       
-        @FXML
+       @FXML
        private void AddUser(ActionEvent event) throws SQLException{
            
                     if (nd.getText().isEmpty()|| nom.getText().isEmpty() || mail.getText().isEmpty() || prenom.getText().isEmpty() || pass.getText().isEmpty() || comm.getValue().isEmpty())
@@ -374,7 +400,7 @@ String pr= prenom.getText();
        
        
        }
-        @FXML
+       @FXML
     private void Ajoutefichier(ActionEvent event) {
               FileChooser f = new FileChooser();
         File S = f.showOpenDialog(null);
@@ -386,7 +412,6 @@ String pr= prenom.getText();
         
          }
     }
-      
       @FXML
        private void AddRole(ActionEvent event){
            
@@ -399,7 +424,16 @@ String pr= prenom.getText();
             Optional<ButtonType> result = alert.showAndWait();
            }
            else{
-           EnregistrerVersBase();
+//           EnregistrerVersBase();
+             ServiceRole sr = new ServiceRole();
+             Role r = new Role();
+             r.setRole(Role_txt.getText());
+               try {
+                   sr.ajouter(r);
+               } catch (SQLException ex) {
+                   Logger.getLogger(DashboardAdminController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+
            table();
            
            Role_txt.clear();
@@ -415,8 +449,9 @@ String pr= prenom.getText();
          
         columnid.setCellValueFactory( new PropertyValueFactory<>("id_role"));
         columnRole.setCellValueFactory(new PropertyValueFactory <>("role"));
-       
-        tab.setItems(RecupBase()); 
+        ServiceRole sr = new ServiceRole();
+
+        tab.setItems(sr.RecupBase()); 
 
 
 
@@ -446,8 +481,8 @@ String pr= prenom.getText();
             
     }
 }
-             @FXML
-      void Modifier(ActionEvent event) {
+           @FXML
+             void Modifier(ActionEvent event) {
         String role= Role_txt.getText();
         String id = idx.getText();
                 int i=Integer.valueOf(id);
@@ -459,7 +494,7 @@ String pr= prenom.getText();
          PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
          st.executeUpdate();
             table();
-          JOptionPane.showMessageDialog(null,"Le fichier a été modifier");
+          JOptionPane.showMessageDialog(null,"Le role a été modifier");
     }catch(SQLException ex){
         ex.getMessage();
     }
@@ -472,37 +507,45 @@ String pr= prenom.getText();
       
       
       
-             
-              @FXML
-    private void Supprimer(ActionEvent event) {
+          @FXML   
+    private void Supprimer(ActionEvent event) throws SQLException {
          
+        ServiceRole sr = new ServiceRole();
         
         String idf=idx.getText();
         int i=Integer.valueOf(idf);
-        SuppRole(i);
-        table();
+        Role r = new Role();
+        r = sr.SelectRole(i);
+         
+              System.out.println(r);
+              sr.delete(r);
+        
+                         table();
+
+//        SuppRole(i);
+     
        
         
-                JOptionPane.showMessageDialog(null,"Le fichier a été supprimer avec succés");
+                JOptionPane.showMessageDialog(null,"Le role a été supprimer avec succés");
     
         
     }
      
-         public void SuppRole(int id){
-             
-               
-        String sql ="DELETE FROM role WHERE id_role="+ id +"";
-        try {
-         PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
-         st.executeUpdate();
-            table();
-    }catch(SQLException ex){
-        ex.getMessage();
-    }
-        
-         
-         
-         }
+//         public void SuppRole(int id){
+//             
+//               
+//        String sql ="DELETE FROM role WHERE id_role="+ id +"";
+//        try {
+//         PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
+//         st.executeUpdate();
+//            table();
+//    }catch(SQLException ex){
+//        ex.getMessage();
+//    }
+//        
+//         
+//         
+//         }
          
          public static ObservableList<String> RecupCombo(){
              
@@ -532,31 +575,7 @@ String pr= prenom.getText();
     return list;
     }
          
-         public static ObservableList<Role> RecupBase(){
-             
-    ObservableList<Role> list = FXCollections.observableArrayList();
-    
-       java.sql.Connection cnx;
-     cnx = Database.getInstance().getCnx();
-          String sql = "select *from role";
-    try {
-       
-        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
-
-    ResultSet R = st.executeQuery();
-    while (R.next()){
-      Role r =new Role();
-     r.setId_role((R.getInt(1)));
-     r.setRole(R.getString(2));
-    
-     
-      list.add(r);
-    }
-    }catch (SQLException ex){
-    ex.getMessage(); 
-    } 
-    return list;
-    }
+         
             public  boolean VerifEmail(String email) 
     { 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 

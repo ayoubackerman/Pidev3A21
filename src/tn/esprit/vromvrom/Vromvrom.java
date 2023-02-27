@@ -16,8 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import tn.esprit.vromvrom.Database.Database;
 
 
@@ -27,11 +29,37 @@ import tn.esprit.vromvrom.Database.Database;
  */
 public class Vromvrom extends Application {
     
+    private double xOffset = 0  ; 
+    private double yOffset = 0  ; 
+
+    
 //    @Override
     public void start(Stage primaryStage) {
       try {
-            Parent root = FXMLLoader.load(getClass(). getResource("DashboardAdmin.fxml"));
+            Parent root = FXMLLoader.load(getClass(). getResource("Login.fxml"));
             Scene scene = new Scene(root);
+           primaryStage.initStyle(StageStyle.UNDECORATED);
+           primaryStage.setMaximized(false);
+            
+              root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        //sorry about that - Windows defender issue.
+        //move around here
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
+            
+            
             primaryStage.setTitle("Login");
             primaryStage.setScene(scene);
             primaryStage.show();         

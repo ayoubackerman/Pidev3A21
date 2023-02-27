@@ -21,7 +21,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
-import static tn.esprit.vromvrom.DashboardAdminController.RecupBase;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Role;
 import tn.esprit.vromvrom.Model.urgence;

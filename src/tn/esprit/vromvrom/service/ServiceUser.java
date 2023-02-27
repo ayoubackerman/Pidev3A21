@@ -5,6 +5,9 @@
  */
 package tn.esprit.vromvrom.service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +21,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,6 +54,7 @@ public class ServiceUser implements IServiceUser<User> {
 //int id=role.getId_role();
 //t.setId_role(r.SelectRole(id));
 ste.executeUpdate(requeteInsert);
+//t.setId_role(r.SelectRole(id));
 
     }
     
@@ -108,7 +113,7 @@ ste.executeUpdate(requeteInsert);
         PreparedStatement pre = cnx.prepareStatement(req);
          pre.setString(1, email);
          pre.setString(2, numdu);
-         pre.setString(3, mdpasse);
+         pre.setString(3, encryptThisString(mdpasse));
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
             int id = rs.getInt(1);
@@ -118,9 +123,10 @@ ste.executeUpdate(requeteInsert);
             String mail = rs.getString(5);
             String nomd = rs.getString(6);
             String mdp = rs.getString(7);
+            String Image = rs.getString(9);
             
-            p = new User(id, role, nom, prenom, mail, nomd, mdp);
-            User.connecte=new User(id, role, nom, prenom, mail, nomd, mdp);
+            p = new User(id, role, nom, prenom, mail, nomd, mdp,Image);
+            User.connecte=new User(id, role, nom, prenom, mail, nomd, mdp,Image);
         }
         return p;
     }
@@ -148,6 +154,37 @@ ste.executeUpdate(requeteInsert);
             Logger.getLogger(ServiceRole .class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
+    }
+            public  boolean VerifEmail(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(emailRegex); 
+        if (email == null) 
+            return false; 
+        return pat.matcher(email).matches(); 
+    } 
+ //Verifier le nom d'utilisateur s'il existe ou pas 
+
+  
+       public String encryptThisString(String input) 
+    { 
+        try { 
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            byte[] messageDigest = md.digest(input.getBytes()); 
+            BigInteger no = new BigInteger(1, messageDigest); 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        } 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
     }
     
     

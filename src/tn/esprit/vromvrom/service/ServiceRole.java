@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Role;
 
@@ -40,23 +42,23 @@ public class ServiceRole implements IServiceRole<Role> {
          Statement ste =  cnx.createStatement();
  if (search(t)==true){
          ste = cnx.createStatement();
-         String requeteDelete ="DELETE FROM user WHERE id_role="+ t.getId_role()+"";
+         String requeteDelete ="DELETE FROM role WHERE id_role="+ t.getId_role()+"";
          ste.executeUpdate(requeteDelete);}
          else{
-           System.out.println("L'utulisateur n'existe pas");
+           System.out.println("Le Role n'existe pas");
         }
-         return true;    }
+         return true;  
+    }
 
     @Override
     public boolean update(Role t) throws SQLException {
  if (search(t)==true){
-        PreparedStatement pre=cnx.prepareStatement("UPDATE `role` SET ID = ?, role = ? WHERE `id_role`=? ;");
+        PreparedStatement pre=cnx.prepareStatement("UPDATE `role` SET `id_role` ='"+ t.getId_role() +"' , role = '"+ t.getRole() +"' WHERE `id_role`= '" + t.getId_role() );
         pre.setInt(1,t.getId_role());
         pre.setString(2,t.getRole());
-       
-        
         pre.executeUpdate();
-        return true;}
+        return true;
+ }
           else{
            System.out.println("L'utulisateur n'existe pas");
            return true;
@@ -88,6 +90,34 @@ public class ServiceRole implements IServiceRole<Role> {
      }
     return arr;
     }
+    
+    public static ObservableList<Role> RecupBase(){
+             
+    ObservableList<Role> list = FXCollections.observableArrayList();
+    
+       java.sql.Connection cnx;
+     cnx = Database.getInstance().getCnx();
+          String sql = "select *from role";
+    try {
+       
+        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
+
+    ResultSet R = st.executeQuery();
+    while (R.next()){
+      Role r =new Role();
+     r.setId_role((R.getInt(1)));
+     r.setRole(R.getString(2));
+    
+     
+      list.add(r);
+    }
+    }catch (SQLException ex){
+    ex.getMessage(); 
+    } 
+    return list;
+    }
+    
+    
      public Role SelectRole(int id){
         Role r = new Role();
         String req = "SELECT * FROM role where id_role ="+id+"";

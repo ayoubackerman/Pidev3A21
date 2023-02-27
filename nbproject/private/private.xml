@@ -3,16 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/UrgenceController.java</file>
             <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Model/urgence.java</file>
             <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/DashboardUserController.java</file>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Urgence.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/DashboardUser.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/dashboarduser_1.css</file>
             <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Model/Role.java</file>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Vromvrom.java</file>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/dashboardadmin.css</file>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/DashboardAdminController.java</file>
-            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/tryy.java</file>
             <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Model/User.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/SignupController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Login.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Urgence.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/dashboardadmin.css</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/LoginController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Item.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/DashboardAdmin.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/UrgenceController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/service/ServiceUser.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/ManageRoleController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/profile.css</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Vromvrom.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/DashboardAdminController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/signup.css</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Signup.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/ProfileController.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/managerole.css</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/ManageRole.fxml</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/tryy.java</file>
+            <file>file:/C:/Users/MediaCenter%20Zaghouan/Documents/NetBeansProjects/Vromvrom/src/tn/esprit/vromvrom/Profile.fxml</file>
         </group>
     </open-files>
 </project-private>

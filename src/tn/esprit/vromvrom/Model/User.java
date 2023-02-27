@@ -15,7 +15,7 @@ public class User {
     private String nom;
     private String prenom;
     private String mail;
-      private String nomd;
+    private String nomd;
     private String mdp;
     private String status;
     private String Image;
@@ -31,6 +31,17 @@ public class User {
     
 
     public User(Role id_role, String nom, String prenom, String mail, String nomd, String mdp, String Image) {
+        this.id_role = id_role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.nomd = nomd;
+        this.mdp = mdp;
+        this.Image = Image;
+    }
+
+    public User(int id_user, Role id_role, String nom, String prenom, String mail, String nomd, String mdp, String Image) {
+        this.id_user = id_user;
         this.id_role = id_role;
         this.nom = nom;
         this.prenom = prenom;
@@ -149,12 +160,4 @@ public class User {
     public static void setConnecte(User connecte) {
         User.connecte = connecte;
     }
-
-
-  
-
-
-   
-
-   
 }
