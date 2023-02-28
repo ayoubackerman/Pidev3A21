@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="564.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.vromvrom.GUI.ChatUrgence">
+    <center>
+        <VBox prefHeight="381.0" prefWidth="615.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="615.0" text="Chat">
+                <font>
+                    <Font name="Arial" size="18.0" />
+                </font>
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+            </Label>
+            <ListView fx:id="chatHistory" prefHeight="400.0" prefWidth="200.0">
+            <VBox.margin>
+               <Insets left="5.0" right="5.0" />
+            </VBox.margin></ListView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" prefHeight="134.0" prefWidth="615.0" spacing="10.0">
+            <TextArea fx:id="messageInput" prefHeight="54.0" prefWidth="424.0">
+            <HBox.margin>
+               <Insets bottom="40.0" left="20.0" top="40.0" />
+            </HBox.margin></TextArea>
+            <Button fx:id="sendButton" mnemonicParsing="false" onAction="#Envoyer" prefHeight="26.0" prefWidth="109.0" text="Send">
+            <HBox.margin>
+               <Insets left="25.0" />
+            </HBox.margin></Button>
+        </HBox>
+    </bottom>
+</BorderPane>

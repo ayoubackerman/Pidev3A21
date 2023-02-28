@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Urgence {
     private int id_urgence;
-    private int id_trajet;
-    private int id_voiture;
+    private Trajet trajet;
+    private Voiture_urgence voiture;
     private String localisation;
     private String description;
     private String statuts;
@@ -15,23 +15,25 @@ public class Urgence {
     public Urgence() {
     }
 
-    public Urgence(int id_urgence, int id_trajet, int id_voiture, String localisation, String description, String status, String temps) {
-        this.id_urgence = id_urgence;
-        this.id_trajet = id_trajet;
-        this.id_voiture = id_voiture;
-        this.localisation = localisation;
-        this.description = description;
-        this.statuts = status;
+    public Urgence(String temps) {
         this.temps = temps;
     }
 
-    public Urgence(int id_trajet, int id_voiture, String localisation, String description, String status, String temps) {
-        this.id_trajet = id_trajet;
-        this.id_voiture = id_voiture;
+    public Urgence(Trajet trajet, Voiture_urgence voiture, String localisation, String description, String statuts, String temps) {
+        this.trajet = trajet;
+        this.voiture = voiture;
+        this.localisation = localisation;
+        this.description = description;
+        this.statuts = statuts;
+        this.temps = temps;
+    }
+
+    public Urgence(Trajet trajet, Voiture_urgence voiture, String localisation, String description, String status) {
+        this.trajet = trajet;
+        this.voiture = voiture;
         this.localisation = localisation;
         this.description = description;
         this.statuts = status;
-        this.temps = temps;
     }
 
 
@@ -43,20 +45,20 @@ public class Urgence {
         this.id_urgence = id_urgence;
     }
 
-    public int getId_Trajet() {
-        return id_trajet;
+    public Trajet getTrajet() {
+        return trajet;
     }
 
-    public void setId_trajet(int id_trajet) {
-        this.id_trajet = id_trajet;
+    public void setTrajet(Trajet trajet) {
+        this.trajet = trajet;
     }
 
-    public int getId_voiture() {
-        return id_voiture;
+    public Voiture_urgence getVoiture() {
+        return voiture;
     }
 
-    public void setId_voiture(int id_voiture) {
-        this.id_voiture = id_voiture;
+    public void setVoiture(Voiture_urgence voiture) {
+        this.voiture = voiture;
     }
 
     public String getLocalisation() {
@@ -75,12 +77,12 @@ public class Urgence {
         this.description = description;
     }
 
-    public String getStatus() {
+    public String getStatuts() {
         return statuts;
     }
 
-    public void setStatus(String status) {
-        this.statuts = status;
+    public void setStatuts(String statuts) {
+        this.statuts = statuts;
     }
 
     public String getTemps() {
@@ -96,11 +98,11 @@ public class Urgence {
     public String toString() {
         return "Urgence{" +
                 "id_urgence=" + id_urgence +
-                ", id_trajet=" + id_trajet +
-                ", id_voiture=" + id_voiture +
+                ", trajet=" + trajet +
+                ", voiture=" + voiture +
                 ", localisation='" + localisation + '\'' +
                 ", description='" + description + '\'' +
-                ", status='" + statuts + '\'' +
+                ", statuts='" + statuts + '\'' +
                 ", temps='" + temps + '\'' +
                 '}';
     }
@@ -111,7 +113,7 @@ public class Urgence {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Urgence urgence = (Urgence) o;
-        return id_urgence == urgence.id_urgence && id_trajet == urgence.id_trajet && id_voiture == urgence.id_voiture && Objects.equals(localisation, urgence.localisation) && Objects.equals(description, urgence.description) && Objects.equals(statuts, urgence.statuts) && Objects.equals(temps, urgence.temps);
+        return id_urgence == urgence.id_urgence && Objects.equals(trajet, urgence.trajet) && Objects.equals(voiture, urgence.voiture) && Objects.equals(localisation, urgence.localisation) && Objects.equals(description, urgence.description) && Objects.equals(statuts, urgence.statuts) && Objects.equals(temps, urgence.temps);
     }
 
 

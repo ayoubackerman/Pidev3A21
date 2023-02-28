@@ -38,19 +38,18 @@ public class ServiceVoiture_urgence implements IService<Voiture_urgence>{
     }
 
     @Override
-    public void updateOne(Voiture_urgence voiture_urgence, int id) throws SQLException {
-        String req = "UPDATE voiture_urgence SET modele = ?, marque = ?, matricule = ?, nombre_place = ?, statuts = ?, image = ? WHERE id_voiture = ?";
+    public void updateOne(Voiture_urgence voiture_urgence) throws SQLException {
+        String req = "UPDATE voiture_urgence SET modele = ?, marque = ?, nombre_place = ?, statuts = ?, image = ? WHERE matricule = ?";
 
         System.out.println(req);
 
         PreparedStatement st = cnx.prepareStatement(req);
         st.setString(1, voiture_urgence.getModele());
         st.setString(2, voiture_urgence.getMarque());
-        st.setString(3, voiture_urgence.getMatricule());
-        st.setInt(4, voiture_urgence.getNombre_place());
-        st.setInt(5, voiture_urgence.getStatuts());
-        st.setString(6, voiture_urgence.getImage());
-        st.setInt(7,id);
+        st.setInt(3, voiture_urgence.getNombre_place());
+        st.setInt(4, voiture_urgence.getStatuts());
+        st.setString(5, voiture_urgence.getImage());
+        st.setString(6,voiture_urgence.getMatricule());
 
 
 

@@ -11,52 +11,41 @@ import java.util.Objects;
  *
  * @author user
  */
-public class trajet {
+public class Trajet {
             private String Ville_depart;
             private String Ville_darrive;
             private float Prix;
             private int Nbr_place;
             private int Id_user;
             private int id_trajet;
-            
             private int Duree_pose;
-             private String  Mode_paiement;
+            private String  Mode_paiement;
 
-    public trajet(String Ville_depart, String Ville_darrive, float Prix, int Nbr_place, int Duree_pose, String Mode_paiement) {
-        this.Ville_depart = Ville_depart;
-        this.Ville_darrive = Ville_darrive;
-        this.Prix = Prix;
-        this.Nbr_place = Nbr_place;
-        this.Duree_pose = Duree_pose;
-        this.Mode_paiement = Mode_paiement;
-    }
-           
-
-    public trajet() {
+    public Trajet(int id_trajet) {
+        this.id_trajet = id_trajet;
     }
 
-    public trajet(String Ville_depart, String Ville_darrive, float Prix, int Nbr_place , int Id_user, int Id_trajet, int Duree_pose, String Mode_paiement) {
-        this.Ville_depart = Ville_depart;
-        this.Ville_darrive = Ville_darrive;
-        this.Prix = Prix;
-        this.Nbr_place = Nbr_place;
-        this.id_trajet = Id_user;
-        this.id_trajet = Id_trajet;
-        this.Duree_pose = Duree_pose;
-        this.Mode_paiement = Mode_paiement;
+    public Trajet(String ville_depart, String ville_darrive, float prix, int nbr_place, int id_user, int duree_pose, String mode_paiement) {
+        Ville_depart = ville_depart;
+        Ville_darrive = ville_darrive;
+        Prix = prix;
+        Nbr_place = nbr_place;
+        Id_user = id_user;
+        Duree_pose = duree_pose;
+        Mode_paiement = mode_paiement;
     }
 
-    public trajet(String Ville_depart, String Ville_darrive, float Prix, int Nbr_place, int Id_trajet, int Duree_pose, String Mode_paiement) {
-        this.Ville_depart = Ville_depart;
-        this.Ville_darrive = Ville_darrive;
-        this.Prix = Prix;
-        this.Nbr_place = Nbr_place;
-        this.id_trajet = Id_trajet;
-        this.Duree_pose = Duree_pose;
-        this.Mode_paiement = Mode_paiement;
+    public Trajet(String ville_depart, String ville_darrive, float prix, int nbr_place, int id_user, int id_t, int duree_pose, String mode_paiement) {
+        Ville_depart = ville_depart;
+        Ville_darrive = ville_darrive;
+        Prix = prix;
+        Nbr_place = nbr_place;
+        Id_user = id_user;
+        id_trajet = id_t;
+        Duree_pose = duree_pose;
+        Mode_paiement = mode_paiement;
     }
 
-  
     public String getVille_depart() {
         return Ville_depart;
     }
@@ -127,11 +116,7 @@ public class trajet {
         return "trajet{" + "Ville_depart=" + Ville_depart + ", Ville_darrive=" + Ville_darrive + ", Prix=" + Prix + ", Nbr_place=" + Nbr_place + ", Id_user=" + Id_user + ", Id_trajet=" + id_trajet + ", Duree_pose=" + Duree_pose + ", Mode_paiement=" + Mode_paiement + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -141,7 +126,7 @@ public class trajet {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final trajet other = (trajet) obj;
+        final Trajet other = (Trajet) obj;
         if (!Objects.equals(this.Ville_depart, other.Ville_depart)) {
             return false;
         }

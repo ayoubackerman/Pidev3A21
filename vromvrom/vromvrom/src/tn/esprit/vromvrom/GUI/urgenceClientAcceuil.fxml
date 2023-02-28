@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.vromvrom.GUI.UrgenceClientAcceuil">
+   <children>
+      <TableView layoutX="322.0" layoutY="9.0" prefHeight="578.0" prefWidth="657.0">
+        <columns>
+          <TableColumn prefWidth="120.20001220703125" text="Voiture" />
+          <TableColumn prefWidth="123.0" text="Localisation" />
+            <TableColumn prefWidth="170.4000244140625" text="Description" />
+            <TableColumn prefWidth="117.0" text="Statuts" />
+            <TableColumn prefWidth="128.79998779296875" text="Temps" />
+        </columns>
+      </TableView>
+      <Button layoutX="71.0" layoutY="241.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="189.0" text="Signaler une urgence" />
+      <Label alignment="CENTER" layoutX="28.0" layoutY="550.0" prefHeight="18.0" prefWidth="274.0" text="rester calme en cas d'urgence" />
+   </children>
+</AnchorPane>

@@ -17,9 +17,10 @@ public class Try extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("urgence.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("ChatUrgence.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("VoitureUrgence.fxml"));
+        primaryStage.setTitle("URGENCE APP");
+        primaryStage.setScene(new Scene(root, 1300, 850));
         primaryStage.show();
     }
 

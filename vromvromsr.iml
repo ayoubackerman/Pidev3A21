@@ -17,5 +17,25 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="src" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/vromvrom/vromvrom/dist/lib/javafx-base-11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="jar://$MODULE_DIR$/vromvrom/vromvrom/dist/lib/javafx-base-11.jar!/" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/vromvrom/vromvrom/dist/lib/javafx-graphics-11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="jar://$MODULE_DIR$/vromvrom/vromvrom/dist/lib/javafx-graphics-11.jar!/" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -18,6 +18,10 @@ public class Voiture_urgence {
     public Voiture_urgence() {
     }
 
+    public Voiture_urgence(int id_voiture) {
+        this.id_voiture = id_voiture;
+    }
+
     public Voiture_urgence(int id_voiture, int nombre_place, int statuts, String modele, String marque, String matricule, String image) {
         this.id_voiture = id_voiture;
         this.nombre_place = nombre_place;

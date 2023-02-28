@@ -1,5 +1,8 @@
 package tn.esprit.vromvrom.GUI;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +13,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
+import tn.esprit.vromvrom.entities.Trajet;
 import tn.esprit.vromvrom.entities.Urgence;
+import tn.esprit.vromvrom.entities.Voiture_urgence;
+import tn.esprit.vromvrom.services.ServiceUrgence;
 import tn.esprit.vromvrom.utils.MaConnexion;
 
 import java.net.URL;
@@ -20,6 +27,7 @@ import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+
 
 import javax.swing.*;
 
@@ -64,20 +72,25 @@ public class UrgenceController implements Initializable{
     @FXML
     private Button Add;
 
+    ServiceUrgence SU = new ServiceUrgence();
+
 
 
 
     @FXML
-    void Modifier(ActionEvent event) {
-        String t= id_trajet.getText();
-        String ivd = id_voiture.getText();
+    void Modifier(ActionEvent event) throws SQLException {
+        int t= Integer.parseInt(id_trajet.getText());
+        int ivd = Integer.parseInt(id_voiture.getText());
         String l= localisation.getText();
         String d = description.getText();
         String s = status.getText();
         String da = date.getText();
 
+        Urgence ur =new Urgence(new Trajet(t),new Voiture_urgence(ivd),l,d,s,da);
 
-
+        SU.updateOne(ur);
+        table();
+/*
         String sql = "UPDATE urgence SET id_trajet = '"+ t +"', id_voiture = '"+ ivd +"', localisation = '"+ l +"', description = '"+ d +"', statuts = '"+ s +"' WHERE temps = '"+ da +"'" ;
         java.sql.Connection cnx;
         cnx = MaConnexion.getInstance().getCnx();
@@ -90,6 +103,10 @@ public class UrgenceController implements Initializable{
             ex.getMessage();
         }
 
+ */
+
+
+
 
     }
 
@@ -99,20 +116,22 @@ public class UrgenceController implements Initializable{
 
 
     @FXML
-    private void Supprimer(ActionEvent event) {
+    private void Supprimer(ActionEvent event) throws SQLException {
 
 
         String idf=date.getText();
         //int i=Integer.valueOf(idf);
-        SuppRole(idf);
+        //SuppRole(idf);
+        Urgence ur = new Urgence(idf);
+        SU.deletOne(ur);
         table();
 
 
-        JOptionPane.showMessageDialog(null,"Le fichier a été supprimer avec succés");
+       // JOptionPane.showMessageDialog(null,"Le fichier a été supprimer avec succés");
 
 
     }
-
+/*
     public void SuppRole(String id){
 
 
@@ -129,8 +148,9 @@ public class UrgenceController implements Initializable{
         }
 
 
-
     }
+
+ */
 
 
 
@@ -147,9 +167,9 @@ public class UrgenceController implements Initializable{
 
         if (m.getSelectionModel().getSelectedItem() != null) {
             Urgence urgence = m.getSelectionModel().getSelectedItem();
-            int i = urgence.getId_Trajet();
+            int i = urgence.getTrajet().getId_trajet();
             String n = String.valueOf(i);
-            int j = urgence.getId_voiture();
+            int j = urgence.getVoiture().getId_voiture();
             String m = String.valueOf(j);
 
 
@@ -157,10 +177,8 @@ public class UrgenceController implements Initializable{
             id_voiture.setText(m);
             localisation.setText(urgence.getLocalisation());
             description.setText(urgence.getDescription());
-            status.setText(urgence.getStatus());
+            status.setText(urgence.getStatuts());
             date.setText(urgence.getTemps());
-
-
 
 
 
@@ -173,7 +191,7 @@ public class UrgenceController implements Initializable{
 
 
 
-
+/*
     private void EnregistrerVersBase2() {
 
 
@@ -202,10 +220,17 @@ public class UrgenceController implements Initializable{
         }
     }
 
-    @FXML
-    private void AddUrgence(ActionEvent event){
+ */
 
-        EnregistrerVersBase2();
+    @FXML
+    private void AddUrgence(ActionEvent event) throws SQLException {
+
+        Voiture_urgence v = new Voiture_urgence(Integer.parseInt(id_voiture.getText()));
+        Trajet t = new Trajet(Integer.parseInt(id_trajet.getText()));
+
+        Urgence ur = new Urgence(t,v,localisation.getText(),description.getText(),status.getText());
+
+        SU.createOne(ur);
         table();
 
         id_trajet.clear();
@@ -237,45 +262,58 @@ public class UrgenceController implements Initializable{
 
 
 
-    public void table(){
+    public void table() throws SQLException {
 
 
-        a.setCellValueFactory(new PropertyValueFactory <>("Id_Trajet"));
-        b.setCellValueFactory(new PropertyValueFactory <>("id_voiture"));
+       // a.setCellValueFactory(new PropertyValueFactory <>("Trajet"));
+
+
+        a.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getTrajet().getId_trajet()).asObject());
+
+        b.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getVoiture().getId_voiture()).asObject());
         c.setCellValueFactory(new PropertyValueFactory <>("localisation"));
         d.setCellValueFactory(new PropertyValueFactory <>("description"));
-        e.setCellValueFactory(new PropertyValueFactory <>("status"));
+        e.setCellValueFactory(new PropertyValueFactory <>("statuts"));
         f.setCellValueFactory(new PropertyValueFactory <>("temps"));
 
 
-        m.setItems(RecupBase());
+        m.setItems(SU.selectAll());
+        //m.setItems(RecupBase());
 
 
 
     }
+
+/*
     public static ObservableList<Urgence> RecupBase(){
 
         ObservableList<Urgence> list = FXCollections.observableArrayList();
 
         java.sql.Connection cnx;
         cnx = MaConnexion.getInstance().getCnx();
-        String sql = "SELECT * FROM `urgence`";
+        String sql = "SELECT urgence.*, trajet.*\n" +
+                "FROM urgence\n" +
+                "JOIN trajet ON urgence.id_trajet = trajet.id_trajet;";
         try {
 
             PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
 
             ResultSet R = st.executeQuery();
+
+
+
             while (R.next()){
                 Urgence r =new Urgence();
-                r.setId_trajet(R.getInt(2));
-                r.setId_voiture(R.getInt(3));
+               // r.setId_trajet(R.getInt(2));
+                //r.setId_voiture(R.getInt(3));
                 r.setLocalisation(R.getString(4));
                 r.setDescription(R.getString(5));
-                r.setStatus(R.getString(6));
+                r.setStatuts(R.getString(6));
                 r.setTemps(R.getString(7));
                 //System.out.println(r);
                 //System.out.println(r.getId_Trajet());
 
+                System.out.println(R.getString(15));
 
 
 
@@ -287,6 +325,8 @@ public class UrgenceController implements Initializable{
         }
         return list;
     }
+
+ */
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -302,8 +342,11 @@ public class UrgenceController implements Initializable{
         });
 
 
-
-        table();
+        try {
+            table();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 

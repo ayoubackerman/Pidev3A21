@@ -12,13 +12,15 @@ package tn.esprit.vromvrom.tests;
 
 
 
- import tn.esprit.vromvrom.entities.Urgence;
- import tn.esprit.vromvrom.entities.Voiture_urgence;
+ import tn.esprit.vromvrom.entities.*;
+ import tn.esprit.vromvrom.services.ServiceConversation;
+ import tn.esprit.vromvrom.services.ServiceMessages;
  import tn.esprit.vromvrom.services.ServiceUrgence;
  import tn.esprit.vromvrom.services.ServiceVoiture_urgence;
 
 
  import java.sql.SQLException;
+ import java.time.LocalDateTime;
 
 public class Vromvrom {
 
@@ -40,9 +42,9 @@ public class Vromvrom {
        // Evenement pt = new Evenement(1, "sarra","bf");
         // Ticket t = new Ticket(2, 145,,0);
 
-        Urgence ur = new Urgence(1,1,"ddddd","fff","ttttt","oooooo");
-        Urgence ur2 = new Urgence(11,1,1,"bizerte","belle ville","occupé","2H");
-        Urgence ur3 = new Urgence(1,1,"tunis","centre ville","occupé","1H");
+        //Urgence ur = new Urgence(1,1,"ddddd","fff","ttttt","oooooo");
+        //Urgence ur2 = new Urgence(1,1,"bizerte","belle ville","occupé","2H");
+        //Urgence ur3 = new Urgence(1,1,"tunis","centre ville","occupé","1H");
         Voiture_urgence vu1 = new Voiture_urgence(4,1,"X5","bmw","TUN233","imm");
         Voiture_urgence vu2 = new Voiture_urgence(5,1,"benz","mercedes","TUN999","imm");
         vu1.setId_voiture(2);
@@ -50,6 +52,17 @@ public class Vromvrom {
         ServiceVoiture_urgence vu = new ServiceVoiture_urgence();
         //ServiceEvent sv = new ServiceEvent();
           //ServiceTicket st = new ServiceTicket();
+        user user1 = new user(13);
+        user user2 = new user(14);
+
+        Conversation conversation = new Conversation(user1,user2);
+        Conversation conversation2 = new Conversation(1);
+        ServiceConversation serviceConversation = new ServiceConversation();
+
+        Messages m = new Messages(conversation2,"ali","admin","help please");
+        LocalDateTime heureEnvoi = LocalDateTime.of(2023, 2, 27, 01, 58, 48);
+        m.setHeureEnvoi(heureEnvoi);
+        ServiceMessages serviceMessages = new ServiceMessages();
 
         try {
 
@@ -62,11 +75,16 @@ public class Vromvrom {
             // sp.deletOne(ur2);
             // sv.createOne(pt);
             // sp.updateOne(p);
-           // System.out.println(sp.selectAll());
+            //serviceConversation.createOne(conversation);
+            //serviceConversation.updateOne(conversation2);
+            //System.out.println(serviceConversation.selectAll());
+            //serviceMessages.createOne(m);
+            //serviceMessages.deletOne(m);
+            System.out.println(serviceMessages.selectAll());
 
             //vu.createOne(vu2);
            
-            System.out.println(vu.selectAll());
+            //System.out.println(vu.selectAll());
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

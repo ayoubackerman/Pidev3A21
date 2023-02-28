@@ -2,8 +2,12 @@
   <library name="mysql-connector-java-8.0.19">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/lib/mysql-connector-java-8.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/lib/javafx-base-11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/lib/javafx-graphics-11.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/lib/javafx-base-11.jar!/" recursive="false" />
+    <jarDirectory url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/lib/javafx-graphics-11.jar!/" recursive="false" />
   </library>
 </component>
