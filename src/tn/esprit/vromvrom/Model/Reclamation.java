@@ -12,10 +12,10 @@ package tn.esprit.vromvrom.Model;
 public class Reclamation {
     
     private int id_reclamation;
-    private int id_user;
+    private User id_user;
     private String nom,prenom,reclamation ,type_reclamation ,resolution,time ,reponse ;
 
-    public Reclamation(int id_reclamation, int id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
+    public Reclamation(int id_reclamation, User id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
         this.nom = nom;
@@ -27,7 +27,17 @@ public class Reclamation {
         this.reponse = reponse;
     }
 
-    public Reclamation(int id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
+    public Reclamation(int id_reclamation, User id_user, String reclamation, String type_reclamation, String resolution, String time) {
+        this.id_reclamation = id_reclamation;
+        this.id_user = id_user;
+        this.reclamation = reclamation;
+        this.type_reclamation = type_reclamation;
+        this.resolution = resolution;
+        this.time = time;
+    }
+
+    
+    public Reclamation(User id_user, String nom, String prenom, String reclamation, String type_reclamation, String resolution, String time, String reponse) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
@@ -48,6 +58,12 @@ public class Reclamation {
         this.reponse = reponse;
     }
 
+    public Reclamation(User id_user, String reclamation, String type_reclamation) {
+        this.id_user = id_user;
+        this.reclamation = reclamation;
+        this.type_reclamation = type_reclamation;
+    }
+
   
 
     
@@ -58,7 +74,7 @@ public class Reclamation {
         return id_reclamation;
     }
 
-    public int getId_user() {
+    public User getId_user() {
         return id_user;
     }
 
@@ -90,7 +106,7 @@ public class Reclamation {
         this.id_reclamation = id_reclamation;
     }
 
-    public void setId_user(int id_user) {
+    public void setId_user(User id_user) {
         this.id_user = id_user;
     }
 
@@ -134,6 +150,10 @@ public class Reclamation {
     @Override
     public String toString() {
         return "Reclamation{" + "id_reclamation=" + id_reclamation + ", id_user=" + id_user + ", nom=" + nom + ", prenom=" + prenom + ", reclamation=" + reclamation + ", type_reclamation=" + type_reclamation + ", resolution=" + resolution + ", time=" + time + '}';
+    }
+
+    public void setString(int i, String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getid_reclamation() {

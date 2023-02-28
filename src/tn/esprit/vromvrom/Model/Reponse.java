@@ -11,14 +11,15 @@ package tn.esprit.vromvrom.Model;
  */
 public class Reponse {
     private int id_reponse;
-    private int id_reclamation,id_user;
+    private int id_reclamation;
+    private User id_user;
     private String reponse , temps ,nom,prenom;
 
     public Reponse() {
         
     }
 
-    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse, String temps, String nom, String prenom) {
+    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse, String temps, String nom, String prenom) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
@@ -28,19 +29,27 @@ public class Reponse {
         this.prenom = prenom;
     }
 
-    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse) {
+    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
         this.reponse = reponse;
     }
 
-    public Reponse(int id_reponse, int id_reclamation, int id_user, String reponse, String temps) {
+    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse, String temps) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
         this.reponse = reponse;
         this.temps = temps;
+    }
+
+    public Reponse(int id_reponse, int id_reclamation, String reponse) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Reponse(int aInt, int aInt0, User user, String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -54,7 +63,7 @@ public class Reponse {
         return id_reclamation;
     }
 
-    public int getId_user() {
+    public User getId_user() {
         return id_user;
     }
 
@@ -83,7 +92,7 @@ public class Reponse {
         this.id_reclamation = id_reclamation;
     }
 
-    public void setId_user(int id_user) {
+    public void setId_user(User id_user) {
         this.id_user = id_user;
     }
 
@@ -108,6 +117,15 @@ public class Reponse {
         return "Reponse{" + "id_reponse=" + id_reponse + ", id_reclamation=" + id_reclamation + ", id_user=" + id_user + ", reponse=" + reponse + ", temps=" + temps +  '}';
     }
 
+    public void setId_reclamation(User r) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setReponse(int recid) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
    
 
   

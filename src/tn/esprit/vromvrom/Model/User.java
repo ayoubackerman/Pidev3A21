@@ -21,6 +21,9 @@ public class User {
 
     public User() {
     }
+    public User(int id) {
+        this.id_user = id;
+    }
 
     public User(Role id_role, String nom, String prenom, String mail, String nomd, String mdp) {
         this.id_role = id_role;
@@ -110,6 +113,8 @@ public class User {
     public static void setConnecte(User connecte) {
         User.connecte = connecte;
     }
+
+    
 
 
   

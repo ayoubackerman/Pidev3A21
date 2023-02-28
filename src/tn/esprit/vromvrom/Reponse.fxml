@@ -38,7 +38,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </TableView>
-                  <Button fx:id="modrep" layoutX="489.0" layoutY="303.0" mnemonicParsing="false" onAction="#UPPDATE" prefHeight="11.0" prefWidth="176.0" style="-fx-background-color: #133c55;" text="MODIFIER LA REPONSE" textFill="WHITE">
+                  <Button fx:id="modrep" layoutX="489.0" layoutY="303.0" mnemonicParsing="false" onAction="#update" prefHeight="11.0" prefWidth="176.0" style="-fx-background-color: #133c55;" text="MODIFIER LA REPONSE" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -65,7 +65,7 @@
                   <TextField fx:id="temps" layoutX="731.0" layoutY="232.0" promptText="temps" />
                   <TextField fx:id="id_rec" layoutX="15.0" layoutY="232.0" opacity="0.58" promptText="id_rec" />
                   <TextField fx:id="id_user" layoutX="245.0" layoutY="232.0" opacity="0.58" promptText="id_user" />
-                  <ImageView fitHeight="416.0" fitWidth="655.0" layoutX="105.0" layoutY="-71.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="299.0" fitWidth="645.0" layoutX="447.0" layoutY="-67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/image/image_2023-02-21_093950628-removebg-preview.png" />
                      </image>
@@ -75,6 +75,15 @@
                         <Image url="@resources/image/vm-removebg-preview.png" />
                      </image>
                   </ImageView>
+                  <TextField fx:id="cherch" layoutX="51.0" layoutY="162.0" prefHeight="6.0" prefWidth="204.0" promptText="cherche" />
+                  <Button fx:id="modrep1" layoutX="271.0" layoutY="162.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="176.0" style="-fx-background-color: #133c55;" text="MODIFIER LA REPONSE" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Bloom threshold="0.24" />
+                     </effect>
+                  </Button>
                </children>
             </AnchorPane>
          </top>
