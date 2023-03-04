@@ -25,6 +25,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -47,7 +48,7 @@ import static utils.BadWords.checkWords;
  * @author ASUS
  */
 public class ReclamationController implements Initializable {
-
+ObservableList<String> recList = FXCollections.observableArrayList("Technique","Graphique","Service","Autre");
     
     
      private Connection cnx;
@@ -107,6 +108,9 @@ public class ReclamationController implements Initializable {
 
     @FXML
     private TableColumn<Reclamation, String> coltime;
+    
+    @FXML
+    private ChoiceBox<String> rec;
 
     
      @FXML
@@ -382,7 +386,8 @@ colpre.setCellValueFactory((CellDataFeatures<Reclamation, String> param) -> new 
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
         // TODO
-       
+       rec.setValue(" "); 
+        rec.setItems(recList);
     table();
     user.setVisible(true);
     tems.setVisible(false);

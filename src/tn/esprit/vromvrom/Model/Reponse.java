@@ -11,7 +11,7 @@ package tn.esprit.vromvrom.Model;
  */
 public class Reponse {
     private int id_reponse;
-    private int id_reclamation;
+    private Reclamation id_reclamation;
     private User id_user;
     private String reponse , temps ,nom,prenom;
 
@@ -19,7 +19,7 @@ public class Reponse {
         
     }
 
-    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse, String temps, String nom, String prenom) {
+    public Reponse(int id_reponse, Reclamation id_reclamation, User id_user, String reponse, String temps, String nom, String prenom) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
@@ -29,14 +29,14 @@ public class Reponse {
         this.prenom = prenom;
     }
 
-    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse) {
+    public Reponse(int id_reponse, Reclamation id_reclamation, User id_user, String reponse) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
         this.reponse = reponse;
     }
 
-    public Reponse(int id_reponse, int id_reclamation, User id_user, String reponse, String temps) {
+    public Reponse(int id_reponse, Reclamation id_reclamation, User id_user, String reponse, String temps) {
         this.id_reponse = id_reponse;
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
@@ -59,7 +59,7 @@ public class Reponse {
         return id_reponse;
     }
 
-    public int getId_reclamation() {
+    public Reclamation getId_reclamation() {
         return id_reclamation;
     }
 
@@ -88,7 +88,7 @@ public class Reponse {
         this.id_reponse = id_reponse;
     }
 
-    public void setId_reclamation(int id_reclamation) {
+    public void setId_reclamation(Reclamation id_reclamation) {
         this.id_reclamation = id_reclamation;
     }
 

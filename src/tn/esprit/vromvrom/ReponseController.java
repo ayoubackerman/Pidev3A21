@@ -201,7 +201,9 @@ public void Adid(ActionEvent event) throws SQLException {
     rp.setId_user(ur);
     
     // Set the id_reclamation value for the Reponse object
-    rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
+    Reclamation rc = new Reclamation(Integer.parseInt(id_rec.getText()));
+    rp.setId_reclamation(rc);
+   // rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
     
     // Add the Reponse object to the database
     sr.ajouter(rp);
@@ -237,7 +239,9 @@ public void Adid(ActionEvent event) throws SQLException {
   public void update(ActionEvent event) throws SQLException {
     ServiceReponse sr = new ServiceReponse();
     Reponse rp = new Reponse();
-    rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
+//    rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
+Reclamation rc = new Reclamation(Integer.parseInt(id_rec.getText()));
+    rp.setId_reclamation(rc);
     rp.setReponse(rreponse.getText());
     sr.update(rp);
     sr.ResolutionREC(rp);
@@ -253,7 +257,9 @@ public void Adid(ActionEvent event) throws SQLException {
 public void DELLTT(ActionEvent event) throws SQLException {
     ServiceReponse sr = new ServiceReponse();
     Reponse rp = new Reponse();
-    rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
+//    rp.setId_reclamation(Integer.parseInt(id_rec.getText()));
+Reclamation rc = new Reclamation(Integer.parseInt(id_rec.getText()));
+    rp.setId_reclamation(rc);
     if (sr.search(rp)) {
         sr.delete(rp);
         table(); // assuming that table() method is used to refresh the table view

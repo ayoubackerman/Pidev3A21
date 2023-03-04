@@ -3,21 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Reponse.fxml</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/ReclamationController.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/ReponseController.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Vromvrom.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Model/User.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/service/ServiceRole.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Model/Reponse.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/AjouterReclamationController.java</file>
+            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/service/ServiceReponse.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/service/ServiceReclamation.java</file>
             <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Model/Reclamation.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/service/ServiceUser.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/ReclamationController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Vromvrom.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Database/Database.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/DashboardEmployeController.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/Model/Reponse.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/utils/BadWords.java</file>
-            <file>file:/C:/Users/ASUS/OneDrive/Bureau/Vromvrom/src/tn/esprit/vromvrom/service/ServiceReponse.java</file>
         </group>
     </open-files>
 </project-private>

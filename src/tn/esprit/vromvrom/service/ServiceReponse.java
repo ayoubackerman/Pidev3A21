@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tn.esprit.vromvrom.Database.Database;
+import tn.esprit.vromvrom.Model.Reclamation;
 import tn.esprit.vromvrom.Model.Reponse;
 import tn.esprit.vromvrom.Model.Role;
 import tn.esprit.vromvrom.Model.User;
@@ -111,7 +112,7 @@ public boolean delete(Reponse t) throws SQLException {
     ResultSet rs=ste.executeQuery("select * from reponse");
     boolean ok=false; 
     while (rs.next()&&(ok==false)) {         
-         if (rs.getInt(2)==t.getId_reclamation())
+        if (t.getId_reclamation().getId_reclamation() == rs.getInt(2))
              ok=true;
      }
      return ok;    }
@@ -149,7 +150,8 @@ public boolean delete(Reponse t) throws SQLException {
             
             while(rs.next()){           
                  User user = new User(rs.getInt("id_user"));
-               r = new Reponse(rs.getInt("id_reponse"),rs.getInt("id_reclamation"),user,rs.getString("reponse"),rs.getString("temps"));
+                 Reclamation reclamation =new Reclamation(rs.getInt("id_reclamation"));
+               r = new Reponse(rs.getInt("id_reponse"),reclamation,user,rs.getString("reponse"),rs.getString("temps"));
 
             }
             

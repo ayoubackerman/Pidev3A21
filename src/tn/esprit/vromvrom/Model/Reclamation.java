@@ -27,6 +27,10 @@ public class Reclamation {
         this.reponse = reponse;
     }
 
+    public Reclamation(int id_reclamation) {
+        this.id_reclamation = id_reclamation;
+    }
+
     public Reclamation(int id_reclamation, User id_user, String reclamation, String type_reclamation, String resolution, String time) {
         this.id_reclamation = id_reclamation;
         this.id_user = id_user;
@@ -63,6 +67,8 @@ public class Reclamation {
         this.reclamation = reclamation;
         this.type_reclamation = type_reclamation;
     }
+
+   
 
   
 
