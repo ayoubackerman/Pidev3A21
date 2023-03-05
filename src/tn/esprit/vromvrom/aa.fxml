@@ -19,7 +19,7 @@
       <TextArea fx:id="description" layoutX="82.0" layoutY="170.0" prefHeight="200.0" prefWidth="466.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#07aef2" height="55.0" layoutX="5.0" layoutY="36.0" stroke="#f4b707" strokeType="INSIDE" width="601.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#079ff2" height="84.0" layoutX="471.0" layoutY="22.0" stroke="#f4b707" strokeType="INSIDE" width="97.0" />
-      <Button fx:id="envoi" layoutX="483.0" layoutY="339.0" mnemonicParsing="false" onAction="#AddReclamation" text="Envoyer"  />
+      <Button fx:id="envoi" layoutX="483.0" layoutY="339.0" mnemonicParsing="false" onAction="#AddReclamation" text="Envoyer" />
       <ImageView fitHeight="120.0" fitWidth="118.0" layoutX="461.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/image/vm-removebg-preview.png" />
@@ -37,5 +37,6 @@
             <Image url="@resources/image/Capture_d_écran_2023-03-04_023207-removebg-preview%20(1).png" />
          </image>
       </ImageView>
+      <TextField fx:id="time" layoutX="333.0" layoutY="130.0" />
    </children>
 </AnchorPane>

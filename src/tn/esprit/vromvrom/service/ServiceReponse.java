@@ -32,22 +32,33 @@ public class ServiceReponse implements IServiceReponse{
     }
 
     @Override
-  public void ajouter(Reponse t) throws SQLException {
-    Statement ste = cnx.createStatement();
-    
+public void ajouter(Reponse t) throws SQLException {
     // Check if the id_reclamation value exists in the reclamation table
-    ResultSet rs = ste.executeQuery("SELECT COUNT(*) FROM reclamation WHERE id_reclamation = " + t.getId_reclamation());
-    rs.next();
-    int count = rs.getInt(1);
-    if (count == 0) {
-        // Insert a new row into the reclamation table with the id_reclamation value
-        ste.executeUpdate("INSERT INTO reclamation (id_reclamation) VALUES (" + t.getId_reclamation() + ")");
+    String countQuery = "SELECT COUNT(*) FROM reclamation WHERE id_reclamation = ?";
+    try (PreparedStatement countStmt = cnx.prepareStatement(countQuery)) {
+        countStmt.setInt(1, t.getId_reclamation().getId_reclamation());
+        ResultSet rs = countStmt.executeQuery();
+        rs.next();
+        int count = rs.getInt(1);
+        if (count == 0) {
+            // Insert a new row into the reclamation table with the id_reclamation value
+            String insertQuery = "INSERT INTO reclamation (id_reclamation) VALUES (?)";
+            try (PreparedStatement insertStmt = cnx.prepareStatement(insertQuery)) {
+                insertStmt.setInt(1, t.getId_reclamation().getId_reclamation());
+                insertStmt.executeUpdate();
+            }
+        }
+
+        // Insert the row into the reponse table
+        String insertQuery = "INSERT INTO reponse (id_reclamation, id_user) VALUES (?, ?)";
+        try (PreparedStatement insertStmt = cnx.prepareStatement(insertQuery)) {
+            insertStmt.setInt(1, t.getId_reclamation().getId_reclamation());
+            insertStmt.setInt(2, t.getId_user().getId_user());
+            insertStmt.executeUpdate();
+        }
     }
-    
-    // Insert the row into the reponse table
-    String requeteInsert = "INSERT INTO reponse (id_reclamation, id_user) VALUES (" + t.getId_reclamation() + "," + t.getId_user().getId_user() + ")";
-    ste.executeUpdate(requeteInsert);
 }
+
 
 
 
@@ -61,7 +72,7 @@ public class ServiceReponse implements IServiceReponse{
 public boolean delete(Reponse t) throws SQLException {
     Statement ste = cnx.createStatement();
     if (search(t) == true) {
-        String requeteDelete = "DELETE  FROM reponse  WHERE id_reclamation='" + t.getId_reclamation() + "'";
+        String requeteDelete = "DELETE  FROM reponse  WHERE id_reclamation='" + t.getId_reclamation().getId_reclamation() + "'";
         ste.executeUpdate(requeteDelete);
         return true;
     } else {
@@ -76,7 +87,7 @@ public boolean delete(Reponse t) throws SQLException {
     public boolean update(Reponse t) throws SQLException {
           try {
         String req = "UPDATE `reponse` SET `reponse`='"
-                + t.getReponse()+"' WHERE id_reclamation='" + t.getId_reclamation() + "'";
+                + t.getReponse()+"' WHERE id_reclamation='" + t.getId_reclamation().getId_reclamation() + "'";
 
                 
         Statement ps = cnx.createStatement();

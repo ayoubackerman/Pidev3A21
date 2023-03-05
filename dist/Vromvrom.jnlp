@@ -8,10 +8,12 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Vromvrom.jar" size="177723" download="eager" />
+    <jar href="Vromvrom.jar" size="187236" download="eager" />
     <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
-    <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.19.jar" size="2356711" download="eager" />
+    <jar href="lib\pdfbox-2.0.23-sources.jar" size="2560832" download="eager" />
+    <jar href="lib\twilio-8.8.0-jar-with-dependencies.jar" size="8354602" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Vromvrom" >
     <param name="requiredFXVersion" value="8.0+"/>

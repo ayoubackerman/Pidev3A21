@@ -7,20 +7,12 @@ package tn.esprit.vromvrom;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,17 +20,18 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.util.Callback;
-import javax.swing.JOptionPane;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.Reclamation;
 import tn.esprit.vromvrom.Model.Reponse;
@@ -54,6 +47,7 @@ import tn.esprit.vromvrom.service.ServiceUser;
 public class ReponseController implements Initializable {
     
      private Connection cnx;
+
 
     public ReponseController(){
         cnx = Database.getInstance().getCnx();
@@ -113,8 +107,9 @@ public class ReponseController implements Initializable {
     @FXML
     private Button modrep;
     
-     @FXML
-    private Button modrep1;
+    @FXML
+    private Button ad;
+
 
     @FXML
     private Button adrep;
@@ -331,7 +326,24 @@ public void ChercheReclamation(){
     }
 });
     }
-    
+      @FXML
+    private void print(ActionEvent event) {
+        
+        
+          PrinterJob job = PrinterJob.createPrinterJob();
+       
+        Node root= this.tableau;
+        
+     if(job != null){
+     job.showPrintDialog(root.getScene().getWindow()); 
+     Printer printer = job.getPrinter();
+     PageLayout pageLayout = printer.createPageLayout(Paper.A3, PageOrientation.LANDSCAPE, Printer.MarginType.HARDWARE_MINIMUM);
+     boolean success = job.printPage(pageLayout, root);
+     if(success){
+        job.endJob();
+     }
+   }
    
    
+}
 }
