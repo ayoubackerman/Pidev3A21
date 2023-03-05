@@ -50,6 +50,10 @@ public class User {
         this.mdp = mdp;
         this.Image = Image;
     }
+
+    public User(int id_user) {
+        this.id_user = id_user;
+    }
     
 
     public String getStatus() {

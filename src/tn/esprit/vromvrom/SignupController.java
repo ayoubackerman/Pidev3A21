@@ -14,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -31,6 +33,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.mail.Message.RecipientType;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.service.ServiceUser;
@@ -61,26 +68,20 @@ public class SignupController implements Initializable {
     @FXML
     private Button register;
     @FXML
-    private Label l1;
-    @FXML
-    private Label l2;
-    @FXML
-    private Label l3;
-    @FXML
-    private Label l4;
-    @FXML
-    private Label l5;
-    @FXML
-    private Label l6;
-    @FXML
     private JFXComboBox<String> comm;
-    @FXML
-    private Label l11;
 
     /**
      * Initializes the controller class.
      */
     private Connection cnx;
+    @FXML
+    private TextField jTextField7;
+    @FXML
+    private TextField code;
+    @FXML
+    private Label alert;
+    @FXML
+    private Button vrif;
      public SignupController(){
         cnx = Database.getInstance().getCnx();
     }
@@ -166,26 +167,125 @@ public class SignupController implements Initializable {
            
          else {
            
-           EnregistrerVersBase2();
-           JOptionPane.showMessageDialog(null,"Account created successfully");
+           sendmail();
+           
+//           JOptionPane.showMessageDialog(null,"Account created successfully");
 
           
            
+           nom.setVisible(false);
+           prenom.setVisible(false);
+           Email.setVisible(false);
+           nd.setVisible(false);
+           pass.setVisible(false);
+           conf_pass.setVisible(false);
+           code.setVisible(true);
+           vrif.setVisible(true);
+           alert.setVisible(true);
+           comm.setVisible(false);
+//           
+//           
+//         
+           }
+       
+      }
+       
+       
+         @FXML
+       private void Veifcode(ActionEvent event){
+       if(!code.getText().equals(jTextField7.getText())){
+       
+       
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Erreur");
+            
+            alert.setContentText("invalid code");
+            Optional<ButtonType> result = alert.showAndWait();
+       
+       }
+       else {
+       EnregistrerVersBase2();
+                  JOptionPane.showMessageDialog(null,"Account created successfully");
+                       nom.setVisible(true);
+           prenom.setVisible(true);
+           Email.setVisible(true);
+           nd.setVisible(true);
+           pass.setVisible(true);
+           conf_pass.setVisible(true);
+           code.setVisible(false);
+           vrif.setVisible(false);
+           alert.setVisible(false);
+           comm.setVisible(true);
            nom.clear();
            prenom.clear();
            Email.clear();
+           
+           
+           
+           
+           
            nd.clear();
            pass.clear();
            conf_pass.clear();
            
            
-         
-           }
+
        
        
        }
        
        
+       }
+       
+       public void Randum(){
+       
+       Random rd = new Random();
+       jTextField7.setText(""+rd.nextInt(1000+1));
+       
+       }
+       
+       public void sendmail(){
+       
+           Properties props=new Properties();
+        props.put("mail.smtp.host","smtp.gmail.com");
+        props.put("mail.smtp.port",465);
+        props.put("mail.smtp.user","benbrahimayoubben@gmail.com");
+        props.put("mail.smtp.auth",true);
+        props.put("mail.smtp.starttls.enable",true);
+        props.put("mail.smtp.debug",true);
+        props.put("mail.smtp.socketFactory.port",465);
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback",false); 
+        
+        try {             
+                Session session = Session.getDefaultInstance(props, null);
+                session.setDebug(true);
+                MimeMessage message = new MimeMessage(session);
+                message.setText("Your OTP is " + jTextField7.getText());
+                message.setSubject("OTP For your Neftola Account");
+                message.setFrom(new InternetAddress("benbrahimayoubben@gmail.com"));
+                message.addRecipient(RecipientType.TO, new InternetAddress(Email.getText().trim()));
+                message.saveChanges();
+                try
+                {
+                Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com","benbrahimayoubben@gmail.com","rayxxvzckpdqvrvs");
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+                
+            
+                
+                JOptionPane.showMessageDialog(null,"OTP has send to your Email id"); 
+                }catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null,"Please check your internet connection");
+                }              
+            
+        } catch (Exception e) {
+            e.printStackTrace();  
+            JOptionPane.showMessageDialog(null,e);
+        }  
+       }
  
  //Verifier le nom d'utilisateur s'il existe ou pas 
        
@@ -243,12 +343,13 @@ Node node = (Node) event.getSource();
         // TODO
     ObservableList<String> list = FXCollections.observableArrayList("Chauffeur","Client");
     comm.setItems(list);
+    Randum();
+    jTextField7.setVisible(false);
 
-        
+        code.setVisible(false);
+        vrif.setVisible(false);
+        alert.setVisible(false);
     }    
 
-    @FXML
-    private void Register(ActionEvent event) {
-    }
     
 }

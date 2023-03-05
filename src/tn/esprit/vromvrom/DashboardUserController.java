@@ -29,6 +29,12 @@ import javafx.stage.Stage;
 import tn.esprit.vromvrom.Model.User;
 import java.io.File;
 import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import tn.esprit.vromvrom.Database.Database;
 
 /**
  * FXML Controller class
@@ -58,11 +64,27 @@ public class DashboardUserController implements Initializable {
     @FXML
     private JFXButton Home5;
 
+    
     @FXML
     private Label bvn;
     @FXML
     private ImageView img;
-   
+    @FXML
+    private PieChart pie;
+    @FXML
+    private JFXButton Home21;
+    @FXML
+    private JFXButton conversation;
+    @FXML
+    private JFXButton conversation1;
+    @FXML
+    private JFXButton conversation11;
+   public DashboardUserController(){
+        Connection cnx = Database.getInstance().getCnx();
+    }
+       private ObservableList data;
+     
+
    
 
     /**
@@ -83,10 +105,13 @@ public class DashboardUserController implements Initializable {
             Image image = new Image(file.toURI().toURL().toExternalForm());
             img.setImage(image);
             
-            
-            
-            
             bvn.setText("Welcome"+" "+User.connecte.getNom()+" "+User.connecte.getPrenom());
+            
+        buildData();
+        pie.getData().addAll(data);
+
+            
+            
         } catch (MalformedURLException ex) {
             Logger.getLogger(DashboardUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -110,6 +135,25 @@ public class DashboardUserController implements Initializable {
 
     }
     }
+      public void buildData(){
+          java.sql.Connection cnx;
+     cnx = Database.getInstance().getCnx();
+          data = FXCollections.observableArrayList();
+          try{
+            //SQL FOR SELECTING NATIONALITY OF CUSTOMER
+            String SQL =" SELECT COUNT(*), role FROM user u,role r where u.id_role = r.id_role GROUP BY u.id_role";
+
+            ResultSet rs = cnx.createStatement().executeQuery(SQL);
+            while(rs.next()){
+                //adding data on piechart data
+                data.add(new PieChart.Data(rs.getString(2),rs.getInt(1)));
+            }
+          }catch(Exception e){
+              System.out.println("Error on DB connection");
+              return;
+          }
+
+      }
     
     @FXML
     public void LoadScreen(ActionEvent event) throws IOException{
@@ -132,6 +176,43 @@ public class DashboardUserController implements Initializable {
         pane1.getChildren().removeAll();
         pane1.getChildren().setAll(fxml);
     }
+         @FXML
+    public void LoadUser(ActionEvent event) throws IOException{
+     
+        Parent fxml = FXMLLoader.load(getClass(). getResource("ManageUser.fxml"));
+        pane1.getChildren().removeAll();
+        pane1.getChildren().setAll(fxml);
+    }
+        @FXML
+    public void LoadReclamation(ActionEvent event) throws IOException{
+     
+        Parent fxml = FXMLLoader.load(getClass(). getResource("Reponse.fxml"));
+        pane1.getChildren().removeAll();
+        pane1.getChildren().setAll(fxml);
+    }
+    @FXML
+      public void LoadConversation(ActionEvent event) throws IOException{
+     
+        Parent fxml = FXMLLoader.load(getClass(). getResource("ChatUrgence.fxml"));
+        pane1.getChildren().removeAll();
+        pane1.getChildren().setAll(fxml);
+    }
+    @FXML
+         public void LoadUrgence(ActionEvent event) throws IOException{
+     
+        Parent fxml = FXMLLoader.load(getClass(). getResource("urgence.fxml"));
+        pane1.getChildren().removeAll();
+        pane1.getChildren().setAll(fxml);
+    }
+    @FXML
+           public void LoadVoiture(ActionEvent event) throws IOException{
+     
+        Parent fxml = FXMLLoader.load(getClass(). getResource("VoitureUrgence.fxml"));
+        pane1.getChildren().removeAll();
+        pane1.getChildren().setAll(fxml);
+    }
+
+
 
   
 }

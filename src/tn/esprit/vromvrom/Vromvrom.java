@@ -36,7 +36,7 @@ public class Vromvrom extends Application {
 //    @Override
     public void start(Stage primaryStage) {
       try {
-            Parent root = FXMLLoader.load(getClass(). getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass(). getResource("LoadingFXML.fxml"));
             Scene scene = new Scene(root);
            primaryStage.initStyle(StageStyle.UNDECORATED);
            primaryStage.setMaximized(false);

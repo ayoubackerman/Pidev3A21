@@ -5,6 +5,8 @@
  */
 package tn.esprit.vromvrom;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +26,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import tn.esprit.vromvrom.Database.Database;
 import tn.esprit.vromvrom.Model.User;
@@ -52,6 +58,8 @@ public class ProfileController implements Initializable {
   private Connection cnx;
     @FXML
     private Button up;
+    @FXML
+    private ImageView img;
   
      public ProfileController(){
         cnx = Database.getInstance().getCnx();
@@ -168,12 +176,24 @@ public class ProfileController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     
-        // TODO
-        
-        nom.setText(User.connecte.getNom());
-        prenom.setText(User.connecte.getPrenom());
-        Email.setText(User.connecte.getMail());
-        nd.setText(User.connecte.getNomd());
+        try {
+            // TODO
+            String s = User.connecte.getImage().toString();
+            
+            File file = new File(s);
+            
+            
+            System.out.println(s);
+            Image image = new Image(file.toURI().toURL().toExternalForm());
+            img.setImage(image);
+            
+            nom.setText(User.connecte.getNom());
+            prenom.setText(User.connecte.getPrenom());
+            Email.setText(User.connecte.getMail());
+            nd.setText(User.connecte.getNomd());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }    
 

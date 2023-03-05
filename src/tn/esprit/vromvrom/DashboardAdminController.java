@@ -156,45 +156,7 @@ public class DashboardAdminController implements Initializable {
 
     
     
-     public static ObservableList<User> RecupBase2(){
-             
-    ObservableList<User> list = FXCollections.observableArrayList();
     
-       java.sql.Connection cnx;
-     cnx = Database.getInstance().getCnx();
-          String sql = "select *from user ";
-    try {
-       
-        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
-
-    ResultSet R = st.executeQuery();
-    while (R.next()){
-        ServiceRole r = new ServiceRole();
-        
-//       r.SelectRole(R.getInt(2));
-        
-        User u = new User();
-        u.setId_user(R.getInt(1));
-     u.setId_role(r.SelectRole(R.getInt(2)));
-     u.setNom(R.getString(3));
-     u.setPrenom(R.getString(4));
-     u.setMail(R.getString(5));
-     u.setNomd(R.getString(6));
-     u.setStatus(R.getString(8));
-        System.out.println(u);
-
- 
-
-    
-     
-      list.add(u);
-    }
-    }catch (SQLException ex){
-    ex.getMessage(); 
-    } 
-    return list;
-    }
-     
       public void onEdit2() {
                
                java.sql.Connection cnx;
@@ -227,7 +189,6 @@ String pr= prenom.getText();
         try {
          PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
          st.executeUpdate();
-            table2();
           JOptionPane.showMessageDialog(null," L'utilisateur a été modifier");
     }catch(SQLException ex){
         ex.getMessage();
@@ -250,7 +211,6 @@ String pr= prenom.getText();
         try {
          PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
          st.executeUpdate();
-            table2();
           JOptionPane.showMessageDialog(null,"L'utilisateur a été supprimer");
     }catch(SQLException ex){
         ex.getMessage();
@@ -259,29 +219,7 @@ String pr= prenom.getText();
 
     }
      
-       public void table2(){
-         
-//        r.setCellValueFactory( new PropertyValueFactory<>("Role"));
-r.setCellValueFactory(new Callback<CellDataFeatures<User,String>,ObservableValue<String>>(){
-    @Override
-    public ObservableValue<String> call(CellDataFeatures<User, String> param) {
-                            return new SimpleStringProperty(param.getValue().getId_role().getRole());
 
-    }
-  
-             
-            });
-        n.setCellValueFactory( new PropertyValueFactory<>("nom"));
-        p.setCellValueFactory(new PropertyValueFactory <>("prenom"));
-        e.setCellValueFactory( new PropertyValueFactory<>("mail"));
-        u.setCellValueFactory(new PropertyValueFactory <>("Nomd"));
-        s.setCellValueFactory(new PropertyValueFactory <>("status"));
-        user.setCellValueFactory(new PropertyValueFactory <>("id_user"));
-       
-       
-        tab_User.setItems(RecupBase2()); 
-        
-       }
     
  
        public String encryptThisString(String input) 
@@ -385,7 +323,6 @@ r.setCellValueFactory(new Callback<CellDataFeatures<User,String>,ObservableValue
          else {
            
            EnregistrerVersBase2();
-           table2();
            
            nom.clear();
            prenom.clear();
@@ -608,7 +545,6 @@ r.setCellValueFactory(new Callback<CellDataFeatures<User,String>,ObservableValue
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         table();
-        table2();
         
         comm.setItems(RecupCombo());
         columnid.setVisible(false);

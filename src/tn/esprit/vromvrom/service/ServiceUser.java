@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -131,6 +133,74 @@ ste.executeUpdate(requeteInsert);
         return p;
     }
 
+     public static ObservableList<User> RecupBase2(){
+             
+    ObservableList<User> list = FXCollections.observableArrayList();
+    
+       java.sql.Connection cnx;
+     cnx = Database.getInstance().getCnx();
+          String sql = "select *from user ";
+    try {
+       
+        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
+
+    ResultSet R = st.executeQuery();
+    while (R.next()){
+        ServiceRole r = new ServiceRole();
+        
+//       r.SelectRole(R.getInt(2));
+        
+        User u = new User();
+        u.setId_user(R.getInt(1));
+     u.setId_role(r.SelectRole(R.getInt(2)));
+     u.setNom(R.getString(3));
+     u.setPrenom(R.getString(4));
+     u.setMail(R.getString(5));
+     u.setNomd(R.getString(6));
+     u.setStatus(R.getString(8));
+        System.out.println(u);
+
+ 
+
+    
+     
+      list.add(u);
+    }
+    }catch (SQLException ex){
+    ex.getMessage(); 
+    } 
+    return list;
+    }
+     
+       public static ObservableList<String> RecupCombo(){
+             
+             
+    ObservableList<String> list = FXCollections.observableArrayList();
+    
+       java.sql.Connection cnx;
+     cnx = Database.getInstance().getCnx();
+          String sql = "SELECT role FROM `role`";
+    try {
+       
+        PreparedStatement st = (PreparedStatement) cnx.prepareStatement(sql);
+
+    ResultSet R = st.executeQuery();
+    while (R.next()){
+      
+     
+   String r = R.getString(1);
+        System.out.println(r);
+    
+     
+      list.add(r);
+    }
+    }catch (SQLException ex){
+    ex.getMessage(); 
+    } 
+    return list;
+    }
+    
+    
       public User SelectUser(int id){
           
         User r = new User();
