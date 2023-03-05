@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="controlsfx-8.40.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/controlsfx-8.40.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/fontawesomefx-8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/GMapsFX-11.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/javax.activation-api-1.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/javax.mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/jfoenix-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/jfoenix-8.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/jfoenix-9.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/jxmaps-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/mysql-connector-java-5.1.23-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/mysql-connector-java-8.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/Nouveau dossier/twilio-7.48.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Bureau/javaPi/javax.mail.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

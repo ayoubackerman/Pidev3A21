@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="vromvrom">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/vromvrom/vromvrom/dist/vromvrom.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
