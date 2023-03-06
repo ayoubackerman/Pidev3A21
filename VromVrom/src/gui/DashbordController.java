@@ -80,6 +80,28 @@ public class DashbordController implements Initializable {
         // TODO
     }    
 
+    @FXML
+    private void profiles(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("listePersonnes.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("trajet");
+        stage.show();
+    }
+
+    @FXML
+    private void monProfile(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("trajet");
+        stage.show();
+    }
+
 
     
 }

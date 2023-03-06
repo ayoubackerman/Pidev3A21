@@ -22,6 +22,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import database.Database;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.User;
 import service.ServiceUser;
 
@@ -174,5 +180,15 @@ public class ProfileController implements Initializable {
         nd.setText(User.connecte.getNomd());
 
     }    
+
+    @FXML
+    private void ajouterVoiture(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterVoiture.fxml"));
+        Parent root = loader.load();
+        Scene secondaryScene = new Scene(root);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(secondaryScene);
+        primaryStage.show();
+    }
 
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="814.0" style="-fx-background-color: #EAEEF4;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.vromvrom.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="814.0" style="-fx-background-color: #EAEEF4;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProfileController">
     <stylesheets>
         <URL value="@profile.css" />
     </stylesheets>
@@ -28,12 +28,13 @@
             <Font name="Century Gothic" size="12.0" />
          </font></Button>
       <TextField fx:id="nom" layoutX="45.0" layoutY="108.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
-      <Button layoutX="52.0" layoutY="243.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: #748cf1;" text="Update profile" textFill="WHITE" />
+      <Button layoutX="52.0" layoutY="243.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="161.0" style="-fx-background-color: #748cf1;" text="Update profile" textFill="WHITE" />
       <TextField fx:id="Email" layoutX="492.0" layoutY="108.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
       <TextField fx:id="prenom" layoutX="281.0" layoutY="108.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
       <TextField fx:id="nd" layoutX="45.0" layoutY="185.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
       <PasswordField fx:id="oldpass" layoutX="46.0" layoutY="397.0" promptText="Old password" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
       <PasswordField fx:id="newpass" layoutX="281.0" layoutY="397.0" promptText="New password" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
       <PasswordField fx:id="confpass" layoutX="485.0" layoutY="397.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: #748cf1; -fx-border-width: 0px 0px 2px 0px;" />
+      <Button layoutX="522.0" layoutY="243.0" mnemonicParsing="false" onAction="#ajouterVoiture" prefHeight="31.0" prefWidth="161.0" style="-fx-background-color: #748cf1;" text="Ajouter Voiture" textFill="WHITE" />
    </children>
 </AnchorPane>

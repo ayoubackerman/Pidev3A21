@@ -12,7 +12,7 @@
         <URL value="@ajoutervoiture.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="idClient" layoutX="346.0" layoutY="14.0" />
+      <TextField fx:id="idClient" editable="false" layoutX="346.0" layoutY="14.0" />
       <TextField fx:id="modele" layoutX="346.0" layoutY="62.0" />
       <TextField fx:id="marque" layoutX="346.0" layoutY="107.0" />
       <TextField fx:id="matricule" layoutX="346.0" layoutY="154.0" />
@@ -22,9 +22,8 @@
       <Text layoutX="256.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque" />
       <Text layoutX="254.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricule" />
       <ImageView fx:id="img" fitHeight="123.0" fitWidth="221.0" layoutX="346.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="imgUrl" layoutX="346.0" layoutY="200.0" />
+      <TextField fx:id="imgUrl" editable="false" layoutX="346.0" layoutY="200.0" />
       <Text layoutX="252.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image_url" />
       <Button fx:id="butImg" layoutX="211.0" layoutY="301.0" mnemonicParsing="false" onAction="#afficherImg" text="Ajouter image" />
-      <Button fx:id="butAfficher" layoutX="29.0" layoutY="118.0" mnemonicParsing="false" onAction="#afficher" prefHeight="41.0" prefWidth="160.0" text="Afficher Voitures" />
    </children>
 </AnchorPane>

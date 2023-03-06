@@ -6,9 +6,16 @@
 package gui;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +74,7 @@ public class AjouterVoitureController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+            idClient.setText(Integer.toString(User.connecte.getId_user()));
         }    
     
 
@@ -116,23 +123,26 @@ public class AjouterVoitureController implements Initializable {
     }
 
     @FXML
-    private void afficherImg(ActionEvent event) {
+    private void afficherImg(ActionEvent event) throws IOException {
         FileChooser f = new FileChooser();
         File S = f.showOpenDialog(null);
          if(S!=null){
-       
-        
-        String n = S.getAbsolutePath();
-        System.out.println(S.getAbsolutePath());
-        Image image;
-            try {
-                image = new Image(S.toURI().toURL().toExternalForm());
-                img.setImage(image);
-                imgUrl.setText(S.getAbsolutePath());
-                System.out.println(S.getAbsolutePath());
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(AjouterVoitureController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        String folderPath = "C:\\Users\\mehdi\\Documents\\VromVrom\\VromVrom\\src\\tn\\esprit\\vromvrom\\resources\\image\\";
+        String fileName = S.getName(); // Use the original file name as the new file name
+        File newFile = new File(folderPath + fileName);
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        InputStream inputStream = new FileInputStream(S);
+        OutputStream outputStream = new FileOutputStream(newFile);
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+        outputStream.write(buffer, 0, bytesRead);
+        }
+        inputStream.close();
+        outputStream.close();
+        Image image = new Image(newFile.toURI().toURL().toExternalForm());
+        img.setImage(image);
+        imgUrl.setText("/tn/esprit/vromvrom/resources/image/" + S.getName());
+        System.out.println("tn/esprit/vromvrom/resources/image/" + S.getName());
         
          }
         
