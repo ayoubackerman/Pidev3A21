@@ -1,0 +1,47 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    .root {
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-background-color: #F7F7F7;
+    -fx-accent: #4CAF50;
+    -fx-focus-color: #4CAF50;
+    -fx-faint-focus-color: #4CAF50;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-font-style: normal;
+}
+
+.hbox {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+}
+
+.vbox {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+}
+
+    .button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+ .button:hover {
+    -fx-background-color: #3e8e41;
+}
+
+.button:focused {
+    -fx-background-color: #3e8e41;
+    -fx-text-fill: white;
+}
+
+}

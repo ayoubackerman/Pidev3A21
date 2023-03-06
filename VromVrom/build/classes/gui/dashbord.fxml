@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="902.0" prefWidth="1146.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DashbordController">
+    <stylesheets>
+        <URL value="@dashbord.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane prefHeight="902.0" prefWidth="283.0" style="-fx-background-color: #03045E;">
+         <children>
+            <Button fx:id="RetourH" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#RetourH" prefHeight="69.0" prefWidth="210.0" text="Home">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff1a22" />
+                        <Stop color="#491bff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Black" size="32.0" />
+               </font></Button>
+            <Button layoutX="32.0" layoutY="203.0" mnemonicParsing="false" onAction="#Retour" prefHeight="51.0" prefWidth="169.0" text="Ajouter Trajet">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff1a22" />
+                        <Stop color="#491bff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font></Button>
+            <Button layoutX="32.0" layoutY="293.0" mnemonicParsing="false" onAction="#RetourA" prefHeight="51.0" prefWidth="169.0" text="Afficher Trajet">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff1a22" />
+                        <Stop color="#491bff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font></Button>
+            <Button layoutX="32.0" layoutY="375.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="169.0" text="Liste Des Profiles">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff1a22" />
+                        <Stop color="#491bff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font></Button>
+            <Button layoutX="40.0" layoutY="843.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Mon Profile" />
+            <Button layoutX="35.0" layoutY="451.0" mnemonicParsing="false" onAction="#Retouree" prefHeight="51.0" prefWidth="163.0" text="Envoyer SmS">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#ff1a22" />
+                        <Stop color="#491bff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Arial Black" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="292.0" prefHeight="902.0" prefWidth="854.0" style="-fx-background-color: #d2d8f2;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="690.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../tn/esprit/vromvrom/resources/image/3.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="319.0" fitWidth="801.0" layoutX="35.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../tn/esprit/vromvrom/resources/image/aaaaaaaaaaaaa.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

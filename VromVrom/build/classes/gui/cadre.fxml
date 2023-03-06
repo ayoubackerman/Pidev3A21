@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.CardPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="738.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.CadreController">
+   <children>
+      <CardPane layoutX="24.0">
+          <Label style="-fx-padding:10;" text="Ville_depart" />
+          <Label style="-fx-padding:10;" text="Ville_darrive" />
+          <Label style="-fx-padding:10;" text="label3" />
+      </CardPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+..table-view{
+	-fx-background-color: transparent ;
+}
+.table-view:focused{
+	-fx-background-color: transparent ;
+}
+.table-view .column-header-background{
+	-fx-background-color: red;
+}
+.table-view .column-header-background .label{
+	-fx-background-color: transparent ;
+	-fx-text-fill: black;
+}
+.table-view .column-header{
+	-fx-background-color: transparent ;
+}}
