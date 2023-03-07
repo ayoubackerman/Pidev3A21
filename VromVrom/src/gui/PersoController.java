@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Ratingg;
 import model.User;
@@ -48,7 +49,7 @@ public class PersoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     public void setData(User us){
@@ -69,12 +70,12 @@ public class PersoController implements Initializable {
         try {
             System.out.println(sr.calculateMoyenne(user.getId_user()));
             rate.setRating(sr.calculateMoyenne(user.getId_user()));
-            if (sr.check(User.connecte.getId_user())) rate.setDisable(true);
+            if (sr.check(User.connecte.getId_user(), user.getId_user())) rate.setDisable(true);
         } catch (SQLException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    @FXML
     private void stars(MouseEvent event) {
         rate.setRating(rate.getRating());
         isSet = true;
@@ -90,12 +91,21 @@ public class PersoController implements Initializable {
         ServiceRating sr = new ServiceRating();
         try 
         {
-            if (!sr.search(user.getId_user(), User.connecte.getId_user())) sr.ajouter(r);
+            if (!sr.search(user.getId_user(), User.connecte.getId_user())){ 
+                sr.ajouter(r);
+                rate.setDisable(true);
+            }
             else sr.update(r);
+            
             commentaire.clear();
         } catch (SQLException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public String getData(){
+        return nom.getText();
+    }
+
 
 }

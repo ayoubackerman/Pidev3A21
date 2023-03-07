@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="458.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="458.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardController">
    <children>
       <ImageView fx:id="imgg" fitHeight="144.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" />
       <VBox prefHeight="215.0" prefWidth="289.0">
@@ -24,7 +24,7 @@
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="com" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="203.0" />
+            <TextField fx:id="com" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="203.0" />
             <Rating fx:id="rate" onMouseClicked="#stars" partialRating="true" prefHeight="32.0" prefWidth="92.0" rating="3.5" />
             <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="31.0" prefWidth="116.0" text="Submit" />
          </children>

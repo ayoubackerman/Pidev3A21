@@ -138,9 +138,10 @@ public class ServiceRating implements IServiceRating<Ratingg> {
         return 0;    
     }
     
-    public boolean check(int id) throws SQLException{
-         PreparedStatement pre = cnx.prepareStatement("select * from rating where `id_user2` = ?");
+    public boolean check(int id, int id2) throws SQLException{
+         PreparedStatement pre = cnx.prepareStatement("select * from rating where `id_user2` = ? and `id_user` = ?");
          pre.setInt(1, id);
+         pre.setInt(2, id2);
          return pre.executeQuery().first();
     }
     

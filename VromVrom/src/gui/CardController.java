@@ -51,7 +51,6 @@ public class CardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
     }    
     
     
@@ -73,7 +72,7 @@ public class CardController implements Initializable {
         try {
             System.out.println(sr.calculateMoyenne(user.getId_user()));
             rate.setRating(sr.calculateMoyenne(user.getId_user()));
-            if (sr.check(User.connecte.getId_user())) rate.setDisable(true);
+            if (sr.check(User.connecte.getId_user(), user.getId_user())) rate.setDisable(true);
         } catch (SQLException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -97,6 +96,7 @@ public class CardController implements Initializable {
         {
             if (!sr.search(user.getId_user(), User.connecte.getId_user())) sr.ajouter(r);
             else sr.update(r);
+            rate.setDisable(true);
             com.clear();
         } catch (SQLException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);

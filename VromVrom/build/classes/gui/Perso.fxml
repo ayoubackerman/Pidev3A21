@@ -16,7 +16,7 @@
             <Label fx:id="nom" text="Nom" />
             <Label fx:id="prenom" text="Prenom" />
             <TextField fx:id="commentaire" prefHeight="31.0" prefWidth="172.0" />
-            <Rating fx:id="rate" />
+            <Rating fx:id="rate" onMouseClicked="#stars" />
             <Button mnemonicParsing="false" onAction="#add" text="Submit" />
          </children>
       </VBox>
