@@ -5,6 +5,8 @@
  */
 package tn.esprit.vromvrom.Model;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author MediaCenter Zaghouan
@@ -12,12 +14,24 @@ package tn.esprit.vromvrom.Model;
 public class verifcode {
     private int id_code;
     private String code;
-    private String  codeQR;
+    private float pourcentage;
+    private String  Etat;
+    private ImageView  ImgQR;
 
-    public verifcode(int id_code, String code, String codeQR) {
+    public verifcode() {
+    }
+
+    public verifcode(int id_code, String code, float pourcentage, String Etat) {
         this.id_code = id_code;
         this.code = code;
-        this.codeQR = codeQR;
+        this.pourcentage = pourcentage;
+        this.Etat = Etat;
+    }
+
+    public verifcode(String code, float pourcentage, String Etat) {
+        this.code = code;
+        this.pourcentage = pourcentage;
+        this.Etat = Etat;
     }
 
     public int getId_code() {
@@ -36,19 +50,36 @@ public class verifcode {
         this.code = code;
     }
 
-    public String getCodeQR() {
-        return codeQR;
+    public float getPourcentage() {
+        return pourcentage;
     }
 
-    public void setCodeQR(String codeQR) {
-        this.codeQR = codeQR;
+    public void setPourcentage(float pourcentage) {
+        this.pourcentage = pourcentage;
+    }
+
+    public String getEtat() {
+        return Etat;
+    }
+
+    public void setEtat(String Etat) {
+        this.Etat = Etat;
+    }
+
+    public ImageView getImgQR() {
+        return ImgQR;
+    }
+
+    public void setImgQR(ImageView ImgQR) {
+        this.ImgQR = ImgQR;
     }
 
     @Override
     public String toString() {
-        return "verifcode{" + "id_code=" + id_code + ", code=" + code + ", codeQR=" + codeQR + '}';
+        return "verifcode{" + "id_code=" + id_code + ", code=" + code + ", pourcentage=" + pourcentage + ", Etat=" + Etat + ", ImgQR=" + ImgQR + '}';
     }
-   
+
+
 
     
 

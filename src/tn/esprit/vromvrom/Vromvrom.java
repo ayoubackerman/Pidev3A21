@@ -6,6 +6,7 @@
 package tn.esprit.vromvrom;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -29,22 +30,18 @@ public class Vromvrom extends Application {
     @Override
     public void start(Stage primaryStage) {
       try {
-            Parent root = FXMLLoader.load(getClass(). getResource("Login.fxml"));
+           Parent root = FXMLLoader.load(getClass(). getResource("solde.fxml"));
+           //Parent root = FXMLLoader.load(getClass(). getResource("verifcode.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Login");
             primaryStage.setScene(scene);
-            primaryStage.show();           
+            primaryStage.show();         
+            
         } catch (IOException ex) {
             Logger.getLogger(Vromvrom.class.getName()).log(Level.SEVERE, null, ex);
-        }    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+        }   
     }
 
-  
-    
+
+
 }

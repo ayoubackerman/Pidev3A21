@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.vromvrom.SoldeController">
+   <children>
+      <TextField fx:id="montant" layoutX="247.0" layoutY="91.0" />
+      <Text layoutX="169.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id-User" wrappingWidth="55.7366943359375" />
+      <Text layoutX="169.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="montant" wrappingWidth="66.99999868869781" />
+      <Button fx:id="ajouter" layoutX="379.0" layoutY="201.0" mnemonicParsing="false" onAction="#AddSold" text="ajouter" />
+      <Button layoutX="26.0" layoutY="64.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" text="Ajouter" />
+      <Button fx:id="zt" layoutX="26.0" layoutY="104.0" mnemonicParsing="false" onAction="#Go" prefHeight="31.0" prefWidth="98.0" text="Afficher" />
+      <ComboBox fx:id="comm" layoutX="247.0" layoutY="49.0" prefHeight="31.0" prefWidth="187.0" />
+      <Text layoutX="155.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code promo :" wrappingWidth="83.99999868869781" />
+      <TextField fx:id="codepromo" layoutX="247.0" layoutY="123.0" />
+      <Button layoutX="363.0" layoutY="165.0" mnemonicParsing="false" onAction="#verifC" text="Verifier Code" />
+      <Label fx:id="msgverif" layoutX="169.0" layoutY="165.0" prefHeight="37.0" prefWidth="187.0" />
+      <Label fx:id="msgmontant" layoutX="170.0" layoutY="213.0" prefHeight="37.0" prefWidth="193.0" />
+   </children>
+</AnchorPane>

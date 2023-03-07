@@ -8,9 +8,18 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Vromvrom.jar" size="62972" download="eager" />
+    <jar href="Vromvrom.jar" size="195369" download="eager" />
+    <jar href="lib\TrayNotification.jar" size="41019" download="eager" />
+    <jar href="lib\commons-collections4-4.4.jar" size="751914" download="eager" />
+    <jar href="lib\commons-io-2.11.0.jar" size="327135" download="eager" />
+    <jar href="lib\commons-math3-3.6.1.jar" size="2213560" download="eager" />
+    <jar href="lib\controlsfx-8.40.15.jar" size="1402490" download="eager" />
+    <jar href="lib\core-3.4.1.jar" size="539286" download="eager" />
+    <jar href="lib\core-java6-3.2.0.jar" size="544897" download="eager" />
     <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
-    <jar href="lib\mysql-connector-java-8.0.19.jar" size="2356711" download="eager" />
+    <jar href="lib\javase-java6-3.2.0.jar" size="38268" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.27.jar" size="2475087" download="eager" />
+    <jar href="lib\qrgen-1.2.jar" size="5245" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Vromvrom" >
     <param name="requiredFXVersion" value="8.0+"/>
